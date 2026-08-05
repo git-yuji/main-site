@@ -1,0 +1,119 @@
+---
+import "../styles/global.css";
+
+const services = [
+  {
+    title: "メールチェック",
+    description: "メールを手軽に確認できます",
+    label: "開く",
+    href: "https://mail.yuyu-web.com/",
+  },
+  {
+    title: "ブログ",
+    description: "記事や開発記録を掲載しています",
+    label: "読む",
+    href: "https://notes.yuyu-web.com/",
+  },
+];
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="日々使う、小さなWebサービスをまとめています。"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>MY SPACE</title>
+  </head>
+  <body>
+    <main id="hero" class="hero">
+      <div class="hero__content">
+        <p class="site-name">MY SPACE</p>
+
+        <div class="hero__copy">
+          <h1>つくったものを<br class="mobile-break" />置いています。</h1>
+          <p>日々使う、小さなWebサービス。</p>
+        </div>
+
+        <div class="services" aria-label="サービス一覧">
+          {
+            services.map((service) => (
+              <a
+                class="service-card"
+                href={service.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="service-card__text">
+                  <span class="service-card__title">{service.title}</span>
+                  <span class="service-card__description">
+                    {service.description}
+                  </span>
+                </span>
+                <span class="service-card__link" aria-hidden="true">
+                  {service.label}
+                  <span>→</span>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+
+        <p class="copyright">© 2026 MY SPACE</p>
+      </div>
+    </main>
+
+    <script>
+      import * as THREE from "three";
+      import * as GlobeModule from "vanta/dist/vanta.globe.min";
+
+      type GlobeFactory = (options: Record<string, unknown>) => {
+        destroy: () => void;
+      };
+
+      const globeModule = GlobeModule as unknown as {
+        default?: GlobeFactory | { default?: GlobeFactory };
+      };
+      const GLOBE =
+        typeof globeModule.default === "function"
+          ? globeModule.default
+          : globeModule.default?.default;
+
+      const hero = document.querySelector<HTMLElement>("#hero");
+      let effect: { destroy: () => void } | undefined;
+
+      if (hero && GLOBE) {
+        effect = GLOBE({
+          el: hero,
+          THREE,
+          backgroundAlpha: 1,
+          backgroundColor: 16579836,
+          color: 5060413,
+          color2: 16777215,
+          gyroControls: false,
+          maxDistance: 20,
+          minHeight: 200,
+          minWidth: 200,
+          mouseControls: true,
+          points: 10,
+          scale: 1,
+          scaleMobile: 1,
+          showDots: true,
+          size: 2,
+          spacing: 15,
+          touchControls: true,
+        });
+      } else if (!GLOBE) {
+        console.error("Vanta Globeの読み込みに失敗しました。");
+      }
+
+      window.addEventListener("pagehide", () => effect?.destroy(), {
+        once: true,
+      });
+    </script>
+  </body>
+</html>
