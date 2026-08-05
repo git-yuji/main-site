@@ -30,41 +30,81 @@ const services = [
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>YUYU WEB | Webサービス</title>
   </head>
-  <body>
-    <main id="hero" class="hero">
-      <div class="hero__content">
-        <p class="site-name">YUYU WEB</p>
+  <body
+    class="m-0 min-w-80 overflow-x-clip bg-[#fcfcfc] text-[#19191d] antialiased [font-family:'Hiragino_Kaku_Gothic_ProN','Hiragino_Sans','Yu_Gothic',YuGothic,system-ui,sans-serif]"
+  >
+    <main
+      id="hero"
+      class="relative isolate grid min-h-svh overflow-hidden bg-[#fcfcfc] [&>canvas]:opacity-60 max-[700px]:[&>canvas]:opacity-[0.42]"
+    >
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-[#fcfcfc]/40 via-transparent to-transparent"
+      ></div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(252,252,252,0.52)_92%)]"
+      ></div>
 
-        <div class="hero__copy">
-          <h1>つくったものを<br class="mobile-break" />置いています。</h1>
-          <p>日々使う、小さなWebサービス。</p>
+      <div
+        class="pointer-events-none relative z-10 mx-auto flex min-h-svh w-[min(calc(100%_-_3rem),70rem)] flex-col items-center pt-11 pb-7 max-[700px]:w-[min(calc(100%_-_2rem),30rem)] max-[700px]:pt-7 max-[700px]:pb-[22px]"
+      >
+        <p class="m-0 text-[0.82rem] font-[750] tracking-[0.24em]">
+          YUYU WEB
+        </p>
+
+        <div class="mt-auto mb-14 text-center max-[700px]:mb-9">
+          <h1
+            class="m-0 [font-size:clamp(2.6rem,6.3vw,5.25rem)] leading-[1.2] font-bold tracking-[-0.04em] max-[700px]:[font-size:clamp(2.25rem,10vw,3rem)]"
+          >
+            つくったものを<br class="hidden max-[700px]:block" />置いています。
+          </h1>
+          <p
+            class="mt-6 mb-0 text-[#56565e] [font-size:clamp(1rem,1.7vw,1.25rem)] tracking-[0.05em]"
+          >
+            日々使う、小さなWebサービス。
+          </p>
         </div>
 
-        <div class="services" aria-label="サービス一覧">
+        <div
+          class="pointer-events-auto grid w-full grid-cols-2 gap-[18px] max-[700px]:grid-cols-1 max-[700px]:gap-3"
+          aria-label="サービス一覧"
+        >
           {
             services.map((service) => (
               <a
-                class="service-card"
+                class="group flex min-h-[126px] min-w-0 items-center justify-between gap-6 rounded-[18px] border border-[#19191d]/10 bg-white/[0.76] px-[26px] py-[25px] text-inherit no-underline shadow-[0_14px_45px_rgba(40,34,36,0.08)] backdrop-blur-[16px] transition duration-200 ease-out hover:-translate-y-[3px] hover:border-[#4d373d]/25 hover:shadow-[0_18px_52px_rgba(40,34,36,0.13)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none max-[700px]:min-h-[104px] max-[700px]:gap-3 max-[700px]:rounded-[15px] max-[700px]:px-5 max-[700px]:py-[19px]"
                 href={service.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span class="service-card__text">
-                  <span class="service-card__title">{service.title}</span>
-                  <span class="service-card__description">
+                <span class="grid min-w-0 gap-[9px]">
+                  <span class="text-[1.2rem] font-[750]">
+                    {service.title}
+                  </span>
+                  <span class="text-[0.82rem] leading-[1.65] text-[#67676d]">
                     {service.description}
                   </span>
                 </span>
-                <span class="service-card__link" aria-hidden="true">
+                <span
+                  class="inline-flex shrink-0 items-center gap-[7px] text-[0.86rem] font-bold whitespace-nowrap text-[#4d373d]"
+                  aria-hidden="true"
+                >
                   {service.label}
-                  <span>→</span>
+                  <span
+                    class="text-[1.05rem] transition-transform duration-200 ease-out group-hover:translate-x-[3px] motion-reduce:transition-none"
+                  >
+                    →
+                  </span>
                 </span>
               </a>
             ))
           }
         </div>
 
-        <p class="copyright">© 2026 YUYU WEB</p>
+        <p class="mt-7 mb-0 text-[0.7rem] tracking-[0.08em] text-[#76767c]">
+          © 2026 YUYU WEB
+        </p>
       </div>
     </main>
 
