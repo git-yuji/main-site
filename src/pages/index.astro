@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import GlobeBackground from "../components/GlobeBackground.astro";
 
 const services = [
   {
@@ -7,12 +9,21 @@ const services = [
     description: "メールを手軽に確認できます",
     label: "開く",
     href: "https://mail.yuyu-web.com/",
+    external: true,
   },
   {
     title: "ブログ",
     description: "記事や開発記録を掲載しています",
     label: "読む",
     href: "https://notes.yuyu-web.com/",
+    external: true,
+  },
+  {
+    title: "プロフィール",
+    description: "作っている人と、このサイトについて",
+    label: "詳しく見る",
+    href: "/about/",
+    external: false,
   },
 ];
 ---
@@ -29,12 +40,14 @@ const services = [
     <link rel="canonical" href="https://yuyu-web.com/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>YUYU WEB | Webサービス</title>
+    <ClientRouter />
   </head>
   <body
     class="m-0 min-w-80 overflow-x-clip bg-[#fcfcfc] text-[#19191d] antialiased [font-family:'Hiragino_Kaku_Gothic_ProN','Hiragino_Sans','Yu_Gothic',YuGothic,system-ui,sans-serif]"
   >
     <main
       id="hero"
+      data-globe-background
       class="relative isolate grid min-h-svh overflow-hidden bg-[#fcfcfc] [&>canvas]:opacity-60 max-[700px]:[&>canvas]:opacity-[0.42]"
     >
       <div
@@ -49,7 +62,10 @@ const services = [
       <div
         class="pointer-events-none relative z-10 mx-auto flex min-h-svh w-[min(calc(100%_-_3rem),70rem)] flex-col items-center pt-11 pb-7 max-[700px]:w-[min(calc(100%_-_2rem),30rem)] max-[700px]:pt-7 max-[700px]:pb-[22px]"
       >
-        <p class="m-0 text-[0.82rem] font-[750] tracking-[0.24em]">
+        <p
+          class="m-0 text-[0.82rem] font-[750] tracking-[0.24em]"
+          transition:name="site-title"
+        >
           YUYU WEB
         </p>
 
@@ -67,7 +83,7 @@ const services = [
         </div>
 
         <div
-          class="pointer-events-auto grid w-full grid-cols-2 gap-[18px] max-[700px]:grid-cols-1 max-[700px]:gap-3"
+          class="pointer-events-auto grid w-full grid-cols-3 gap-[18px] max-[900px]:grid-cols-1 max-[700px]:gap-3"
           aria-label="サービス一覧"
         >
           {
@@ -75,8 +91,8 @@ const services = [
               <a
                 class="group flex min-h-[126px] min-w-0 items-center justify-between gap-6 rounded-[18px] border border-[#19191d]/10 bg-white/[0.76] px-[26px] py-[25px] text-inherit no-underline shadow-[0_14px_45px_rgba(40,34,36,0.08)] backdrop-blur-[16px] transition duration-200 ease-out hover:-translate-y-[3px] hover:border-[#4d373d]/25 hover:shadow-[0_18px_52px_rgba(40,34,36,0.13)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none max-[700px]:min-h-[104px] max-[700px]:gap-3 max-[700px]:rounded-[15px] max-[700px]:px-5 max-[700px]:py-[19px]"
                 href={service.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={service.external ? "_blank" : undefined}
+                rel={service.external ? "noopener noreferrer" : undefined}
               >
                 <span class="grid min-w-0 gap-[9px]">
                   <span class="text-[1.2rem] font-[750]">
@@ -107,54 +123,6 @@ const services = [
         </p>
       </div>
     </main>
-
-    <script>
-      import * as THREE from "three";
-      import * as GlobeModule from "vanta/dist/vanta.globe.min";
-
-      type GlobeFactory = (options: Record<string, unknown>) => {
-        destroy: () => void;
-      };
-
-      const globeModule = GlobeModule as unknown as {
-        default?: GlobeFactory | { default?: GlobeFactory };
-      };
-      const GLOBE =
-        typeof globeModule.default === "function"
-          ? globeModule.default
-          : globeModule.default?.default;
-
-      const hero = document.querySelector<HTMLElement>("#hero");
-      let effect: { destroy: () => void } | undefined;
-
-      if (hero && GLOBE) {
-        effect = GLOBE({
-          el: hero,
-          THREE,
-          backgroundAlpha: 1,
-          backgroundColor: 16579836,
-          color: 5060413,
-          color2: 16777215,
-          gyroControls: false,
-          maxDistance: 20,
-          minHeight: 200,
-          minWidth: 200,
-          mouseControls: true,
-          points: 10,
-          scale: 1,
-          scaleMobile: 1,
-          showDots: true,
-          size: 2,
-          spacing: 15,
-          touchControls: true,
-        });
-      } else if (!GLOBE) {
-        console.error("Vanta Globeの読み込みに失敗しました。");
-      }
-
-      window.addEventListener("pagehide", () => effect?.destroy(), {
-        once: true,
-      });
-    </script>
+    <GlobeBackground />
   </body>
 </html>

@@ -1,0 +1,62 @@
+<script>
+  import * as THREE from "three";
+  import * as GlobeModule from "vanta/dist/vanta.globe.min";
+
+  type GlobeFactory = (options: Record<string, unknown>) => {
+    destroy: () => void;
+  };
+
+  const globeModule = GlobeModule as unknown as {
+    default?: GlobeFactory | { default?: GlobeFactory };
+  };
+  const GLOBE =
+    typeof globeModule.default === "function"
+      ? globeModule.default
+      : globeModule.default?.default;
+
+  let effect: { destroy: () => void } | undefined;
+
+  const destroyGlobe = () => {
+    effect?.destroy();
+    effect = undefined;
+  };
+
+  const initializeGlobe = () => {
+    destroyGlobe();
+
+    const background = document.querySelector<HTMLElement>(
+      "[data-globe-background]",
+    );
+    if (!background) return;
+
+    if (!GLOBE) {
+      console.error("Vanta Globeの読み込みに失敗しました。");
+      return;
+    }
+
+    effect = GLOBE({
+      el: background,
+      THREE,
+      backgroundAlpha: 1,
+      backgroundColor: 16579836,
+      color: 5060413,
+      color2: 16777215,
+      gyroControls: false,
+      maxDistance: 20,
+      minHeight: 200,
+      minWidth: 200,
+      mouseControls: true,
+      points: 10,
+      scale: 1,
+      scaleMobile: 1,
+      showDots: true,
+      size: 2,
+      spacing: 15,
+      touchControls: true,
+    });
+  };
+
+  document.addEventListener("astro:page-load", initializeGlobe);
+  document.addEventListener("astro:before-swap", destroyGlobe);
+  window.addEventListener("pagehide", destroyGlobe, { once: true });
+</script>
