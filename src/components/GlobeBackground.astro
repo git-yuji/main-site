@@ -15,6 +15,7 @@
       : globeModule.default?.default;
 
   let effect: { destroy: () => void } | undefined;
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const destroyGlobe = () => {
     effect?.destroy();
@@ -28,6 +29,7 @@
       "[data-globe-background]",
     );
     if (!background) return;
+    if (motionPreference.matches) return;
 
     if (!GLOBE) {
       console.error("Vanta Globeの読み込みに失敗しました。");
@@ -58,5 +60,51 @@
 
   document.addEventListener("astro:page-load", initializeGlobe);
   document.addEventListener("astro:before-swap", destroyGlobe);
-  window.addEventListener("pagehide", destroyGlobe, { once: true });
+  motionPreference.addEventListener("change", initializeGlobe);
+  window.addEventListener(
+    "pagehide",
+    () => {
+      destroyGlobe();
+      motionPreference.removeEventListener("change", initializeGlobe);
+    },
+    { once: true },
+  );
 </script>
+
+<style is:global>
+  [data-globe-background]::before {
+    content: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-globe-background]::before {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      display: block;
+      content: "";
+      pointer-events: none;
+      background-image: url("/globe-static.svg");
+      background-repeat: no-repeat;
+      background-position: right -12rem center;
+      background-size: min(78vw, 62rem) auto;
+      opacity: 0.16;
+    }
+
+    [data-globe-background].globe-static-strong::before {
+      opacity: 0.42;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) and (max-width: 700px) {
+    [data-globe-background]::before {
+      background-position: center;
+      background-size: 46rem auto;
+      opacity: 0.1;
+    }
+
+    [data-globe-background].globe-static-strong::before {
+      opacity: 0.28;
+    }
+  }
+</style>
