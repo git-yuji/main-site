@@ -62,6 +62,7 @@ npm run dev
 main-site/
 ├── public/
 │   ├── favicon.svg      # 地球モチーフのファビコン
+│   ├── og-image.png     # SNS共有用の共通OGP画像
 │   ├── robots.txt       # クローラー制御
 │   └── sitemap.xml      # Search Consoleへ送信するサイトマップ
 ├── src/
