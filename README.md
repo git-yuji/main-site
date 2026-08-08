@@ -1,12 +1,13 @@
 # YUYU WEB
 
-`yuyu-web.com`のメインサイトです。メールチェックと技術ブログへ案内する、シンプルなポータルとして運用します。
+`yuyu-web.com`のメインサイトです。メールチェック、技術ブログ、プロフィールへ案内する、シンプルなポータルとして運用します。
 
 ## サイト一覧
 
 | サービス | URL | 説明 |
 | --- | --- | --- |
 | YUYU WEB | <https://yuyu-web.com/> | 各サービスへの入口 |
+| プロフィール | <https://yuyu-web.com/about/> | プロフィールとサイトの技術構成 |
 | メールチェック | <https://mail.yuyu-web.com/> | メールを手軽に確認するWebアプリ |
 | 技術ブログ | <https://notes.yuyu-web.com/> | 記事や開発記録を掲載するブログ |
 
@@ -16,6 +17,7 @@
 - Tailwind CSSを使ったレスポンシブデザイン
 - Vanta.jsとThree.jsによるGlobeアニメーション
 - メールチェックと技術ブログを別タブで開くサービスカード
+- プロフィールとサイトの技術構成を掲載するAboutページ
 - Cloudflare Workers Static Assetsによる配信
 - canonical、`robots.txt`、`sitemap.xml`を使った検索エンジン向け設定
 
@@ -64,6 +66,7 @@ main-site/
 │   └── sitemap.xml      # Search Consoleへ送信するサイトマップ
 ├── src/
 │   ├── pages/
+│   │   ├── about.astro  # プロフィールと技術構成
 │   │   └── index.astro  # メインページとVanta.jsの設定
 │   └── styles/
 │       └── global.css   # Tailwind CSSの読み込み
