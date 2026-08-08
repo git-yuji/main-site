@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+  <defs>
+    <clipPath id="globe-clip">
+      <circle cx="320" cy="320" r="250"/>
+    </clipPath>
+  </defs>
+  <g fill="none" stroke="#4d373d" stroke-width="2" opacity=".72">
+    <circle cx="320" cy="320" r="250"/>
+    <ellipse cx="320" cy="320" rx="122" ry="250"/>
+    <ellipse cx="320" cy="320" rx="210" ry="250"/>
+    <ellipse cx="320" cy="320" rx="250" ry="92"/>
+    <ellipse cx="320" cy="320" rx="250" ry="176"/>
+    <path clip-path="url(#globe-clip)" d="M94 205 211 136l109 65 112-57 116 103M74 353l111-57 135 46 119-73 127 70M100 463l102-71 118 59 116-45 107 58" opacity=".48"/>
+  </g>
+  <g fill="#4d373d" opacity=".76">
+    <circle cx="94" cy="205" r="5"/><circle cx="211" cy="136" r="4"/>
+    <circle cx="320" cy="201" r="5"/><circle cx="432" cy="144" r="4"/>
+    <circle cx="548" cy="247" r="5"/><circle cx="185" cy="296" r="4"/>
+    <circle cx="320" cy="342" r="5"/><circle cx="439" cy="269" r="4"/>
+    <circle cx="202" cy="392" r="5"/><circle cx="320" cy="451" r="4"/>
+    <circle cx="436" cy="406" r="5"/><circle cx="543" cy="464" r="4"/>
+  </g>
+</svg>

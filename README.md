@@ -16,6 +16,7 @@
 - Astroによる静的サイト
 - Tailwind CSSを使ったレスポンシブデザイン
 - Vanta.jsとThree.jsによるGlobeアニメーション
+- 動きを減らす設定に応じた静止Globeへの切り替え
 - メールチェックと技術ブログを別タブで開くサービスカード
 - プロフィールとサイトの技術構成を掲載するAboutページ
 - 地球儀背景とトップへの導線を備えた404ページ
@@ -63,6 +64,7 @@ npm run dev
 main-site/
 ├── public/
 │   ├── favicon.svg      # 地球モチーフのファビコン
+│   ├── globe-static.svg # 動きを減らす設定向けの静止背景
 │   ├── og-image.png     # SNS共有用の共通OGP画像
 │   ├── robots.txt       # クローラー制御
 │   └── sitemap.xml      # Search Consoleへ送信するサイトマップ
