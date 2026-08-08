@@ -18,6 +18,7 @@
 - Vanta.jsとThree.jsによるGlobeアニメーション
 - メールチェックと技術ブログを別タブで開くサービスカード
 - プロフィールとサイトの技術構成を掲載するAboutページ
+- 地球儀背景とトップへの導線を備えた404ページ
 - Cloudflare Workers Static Assetsによる配信
 - canonical、`robots.txt`、`sitemap.xml`を使った検索エンジン向け設定
 
@@ -67,6 +68,7 @@ main-site/
 │   └── sitemap.xml      # Search Consoleへ送信するサイトマップ
 ├── src/
 │   ├── pages/
+│   │   ├── 404.astro    # ページが見つからない場合の案内
 │   │   ├── about.astro  # プロフィールと技術構成
 │   │   └── index.astro  # メインページとVanta.jsの設定
 │   └── styles/
