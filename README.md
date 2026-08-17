@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | YUYU WEB | <https://yuyu-web.com/> | 各サービスへの入口 |
 | プロフィール | <https://yuyu-web.com/about/> | プロフィールとサイトの技術構成 |
+| 制作物 | <https://yuyu-web.com/works/> | 制作したWebサービスの紹介 |
 | メールチェック | <https://mail.yuyu-web.com/> | メールを手軽に確認するWebアプリ |
 | 技術ブログ | <https://notes.yuyu-web.com/> | 記事や開発記録を掲載するブログ |
 
@@ -19,6 +20,7 @@
 - 動きを減らす設定に応じた静止Globeへの切り替え
 - メールチェックと技術ブログを別タブで開くサービスカード
 - プロフィールとサイトの技術構成を掲載するAboutページ
+- サービスの目的と技術構成を紹介する制作物ページ
 - 地球儀背景とトップへの導線を備えた404ページ
 - Cloudflare Workers Static Assetsによる配信
 - canonical、`robots.txt`、`sitemap.xml`を使った検索エンジン向け設定
@@ -72,7 +74,8 @@ main-site/
 │   ├── pages/
 │   │   ├── 404.astro    # ページが見つからない場合の案内
 │   │   ├── about.astro  # プロフィールと技術構成
-│   │   └── index.astro  # メインページとVanta.jsの設定
+│   │   ├── index.astro  # メインページとVanta.jsの設定
+│   │   └── works.astro  # 制作物の紹介
 │   └── styles/
 │       └── global.css   # Tailwind CSSの読み込み
 ├── astro.config.mjs     # AstroとTailwindの設定
