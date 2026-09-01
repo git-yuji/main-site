@@ -28,6 +28,54 @@ const works = [
     href: "https://notes.yuyu-web.com/",
     github: "https://github.com/git-yuji/TechNotes",
   },
+  {
+    number: "03",
+    category: "TYPESCRIPT LEARNING",
+    title: "TypeScript Simple Todo",
+    description:
+      "型定義やDOM操作、配列処理をTypeScriptで学ぶために制作した、シンプルなToDo管理アプリです。タスクの追加や一覧表示を通して、型を使った実装の基礎を確認できます。",
+    purpose:
+      "PHPで制作したToDoアプリを参考に、データの型や関数の役割を明確にしながらTypeScriptの基本を身につけるために制作しました。",
+    technologies: ["TypeScript", "Vite", "Vitest", "HTML / CSS"],
+    href: null,
+    github: "https://github.com/git-yuji/typescript-simple-todo",
+  },
+  {
+    number: "04",
+    category: "TYPESCRIPT LEARNING",
+    title: "TypeScript Site Checker",
+    description:
+      "URLを入力するとWebサイトのHTMLを取得し、タイトルやOGP、canonical URL、画像のalt属性など、公開前に確認したい項目を診断するアプリです。",
+    purpose:
+      "実用的な診断機能を作りながら、TypeScriptの型設計、DOM操作、非同期処理、テストを段階的に学ぶために制作しました。",
+    technologies: ["TypeScript", "Vite", "Vitest", "jsdom"],
+    href: null,
+    github: "https://github.com/git-yuji/typescript-site-checker",
+  },
+  {
+    number: "05",
+    category: "PHP LEARNING",
+    title: "Mini Todo",
+    description:
+      "フレームワークやデータベースを使わず、タスクをJSONファイルに保存するシンプルなToDo管理アプリです。追加、編集、完了切り替え、絞り込み、削除に対応しています。",
+    purpose:
+      "フォームの受け取りからデータの保存、HTMLの生成まで、PHPによるWebアプリケーションの基本的な流れを学ぶために制作しました。",
+    technologies: ["PHP", "HTML", "CSS", "JSON"],
+    href: null,
+    github: "https://github.com/git-yuji/php-simple-todo",
+  },
+  {
+    number: "06",
+    category: "PHP LEARNING",
+    title: "My Bookmarks",
+    description:
+      "お気に入りのWebサイトを登録する、シンプルなブックマーク管理アプリです。タイトル、URL、カテゴリー、メモの入力と、送信された内容の安全な表示に対応しています。",
+    purpose:
+      "フォームから値を受け取り、入力内容を適切にエスケープしてHTMLへ表示する、PHPの基本的な処理を学ぶために制作しました。",
+    technologies: ["PHP", "HTML", "CSS"],
+    href: null,
+    github: "https://github.com/git-yuji/php-bookmarks",
+  },
 ];
 ---
 
@@ -125,15 +173,17 @@ const works = [
                   ))}
                 </ul>
                 <div class="mt-7 flex flex-wrap gap-3 border-t border-[#19191d]/10 pt-6">
-                  <a
-                    class="group inline-flex min-h-11 items-center gap-2 rounded-full bg-[#4d373d] px-5 text-[0.8rem] font-bold text-white no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#39292d] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-                    href={work.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    サービスを見る
-                    <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none">↗</span>
-                  </a>
+                  {work.href && (
+                    <a
+                      class="group inline-flex min-h-11 items-center gap-2 rounded-full bg-[#4d373d] px-5 text-[0.8rem] font-bold text-white no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#39292d] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+                      href={work.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      サービスを見る
+                      <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none">↗</span>
+                    </a>
+                  )}
                   <a
                     class="group inline-flex min-h-11 items-center gap-2 rounded-full border border-[#4d373d]/15 bg-white/75 px-5 text-[0.8rem] font-bold text-[#4d373d] no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/30 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
                     href={work.github}
