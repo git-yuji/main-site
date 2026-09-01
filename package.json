@@ -10,7 +10,7 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
-    "astro": "^7.2.2",
+    "astro": "^7.2.9",
     "three": "0.185.1",
     "vanta": "0.5.24"
   },
