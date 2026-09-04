@@ -1,0 +1,209 @@
+---
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import GlobeBackground from "../components/GlobeBackground.astro";
+
+const works = [
+  {
+    number: "01",
+    category: "WEB TOOL",
+    title: "メール設定診断",
+    description:
+      "ドメインを入力すると、メール送受信に関係するSPF・DMARC・MXレコードを確認できるWebツールです。設定状況と補足情報をカード形式で整理します。",
+    purpose:
+      "メール設定に詳しくない方にも、診断結果を確認・説明しやすい画面を目指して制作しました。",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare Workers"],
+    href: "https://mail.yuyu-web.com/",
+    github: "https://github.com/git-yuji/mail-checker-app",
+  },
+  {
+    number: "02",
+    category: "KNOWLEDGE BASE",
+    title: "Tech Notes",
+    description:
+      "学習内容や設定手順、トラブル対応を記録する個人用の技術ナレッジ管理アプリです。カテゴリやタグ、キーワードから目的のノートを探せます。",
+    purpose:
+      "必要なときに知識を再利用できるよう、日々の記録を一か所に蓄積しています。",
+    technologies: ["Next.js", "TypeScript", "React Markdown", "Cloudflare Workers"],
+    href: "https://notes.yuyu-web.com/",
+    github: "https://github.com/git-yuji/TechNotes",
+  },
+  {
+    number: "03",
+    category: "TYPESCRIPT LEARNING",
+    title: "TypeScript Simple Todo",
+    description:
+      "型定義やDOM操作、配列処理をTypeScriptで学ぶために制作した、シンプルなToDo管理アプリです。タスクの追加や一覧表示を通して、型を使った実装の基礎を確認できます。",
+    purpose:
+      "PHPで制作したToDoアプリを参考に、データの型や関数の役割を明確にしながらTypeScriptの基本を身につけるために制作しました。",
+    technologies: ["TypeScript", "Vite", "Vitest", "HTML / CSS"],
+    href: null,
+    github: "https://github.com/git-yuji/typescript-simple-todo",
+  },
+  {
+    number: "04",
+    category: "TYPESCRIPT LEARNING",
+    title: "TypeScript Site Checker",
+    description:
+      "URLを入力するとWebサイトのHTMLを取得し、タイトルやOGP、canonical URL、画像のalt属性など、公開前に確認したい項目を診断するアプリです。",
+    purpose:
+      "実用的な診断機能を作りながら、TypeScriptの型設計、DOM操作、非同期処理、テストを段階的に学ぶために制作しました。",
+    technologies: ["TypeScript", "Vite", "Vitest", "jsdom"],
+    href: null,
+    github: "https://github.com/git-yuji/typescript-site-checker",
+  },
+  {
+    number: "05",
+    category: "PHP LEARNING",
+    title: "Mini Todo",
+    description:
+      "フレームワークやデータベースを使わず、タスクをJSONファイルに保存するシンプルなToDo管理アプリです。追加、編集、完了切り替え、絞り込み、削除に対応しています。",
+    purpose:
+      "フォームの受け取りからデータの保存、HTMLの生成まで、PHPによるWebアプリケーションの基本的な流れを学ぶために制作しました。",
+    technologies: ["PHP", "HTML", "CSS", "JSON"],
+    href: null,
+    github: "https://github.com/git-yuji/php-simple-todo",
+  },
+  {
+    number: "06",
+    category: "PHP LEARNING",
+    title: "My Bookmarks",
+    description:
+      "お気に入りのWebサイトを登録する、シンプルなブックマーク管理アプリです。タイトル、URL、カテゴリー、メモの入力と、送信された内容の安全な表示に対応しています。",
+    purpose:
+      "フォームから値を受け取り、入力内容を適切にエスケープしてHTMLへ表示する、PHPの基本的な処理を学ぶために制作しました。",
+    technologies: ["PHP", "HTML", "CSS"],
+    href: null,
+    github: "https://github.com/git-yuji/php-bookmarks",
+  },
+];
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="YUYUが制作したWebサービスを紹介します。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="YUYU WEB" />
+    <meta property="og:title" content="制作物 | YUYU WEB" />
+    <meta property="og:description" content="YUYUが制作したWebサービスを紹介します。" />
+    <meta property="og:url" content="https://yuyu-web.com/works/" />
+    <meta property="og:image" content="https://yuyu-web.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="地球儀をあしらったYUYU WEBのイメージ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://yuyu-web.com/works/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>制作物 | YUYU WEB</title>
+    <ClientRouter />
+  </head>
+  <body
+    class="m-0 min-w-80 bg-[#fcfcfc] text-[#19191d] antialiased [font-family:'Hiragino_Kaku_Gothic_ProN','Hiragino_Sans','Yu_Gothic',YuGothic,system-ui,sans-serif]"
+  >
+    <main
+      data-globe-background
+      class="relative isolate min-h-svh overflow-hidden px-6 py-10 [&>canvas]:opacity-[0.16] max-[700px]:px-4 max-[700px]:py-6 max-[700px]:[&>canvas]:opacity-[0.1]"
+    >
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-20 bg-[#fcfcfc]"></div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute top-[-18rem] left-1/2 -z-10 size-[48rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(77,55,61,0.12),rgba(252,252,252,0)_68%)] max-[700px]:top-[-12rem] max-[700px]:size-[32rem]"
+      ></div>
+
+      <div class="relative z-10 mx-auto w-full max-w-3xl">
+        <header class="flex items-center justify-between gap-6">
+          <a
+            class="text-[0.82rem] font-[750] tracking-[0.24em] text-inherit no-underline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#4d373d]/30"
+            href="/"
+            transition:name="site-title"
+          >
+            YUYU WEB
+          </a>
+          <a
+            class="group inline-flex items-center gap-2 text-[0.82rem] font-bold text-[#4d373d] no-underline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#4d373d]/30"
+            href="/"
+          >
+            <span aria-hidden="true" class="transition-transform duration-200 group-hover:-translate-x-1 motion-reduce:transition-none">←</span>
+            トップへ
+          </a>
+        </header>
+
+        <section class="mt-20 max-[700px]:mt-14" aria-labelledby="works-heading">
+          <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">WORKS</p>
+          <h1
+            id="works-heading"
+            class="mt-4 mb-0 [font-size:clamp(2.8rem,9vw,5rem)] leading-none font-bold tracking-[-0.045em]"
+          >
+            制作物
+          </h1>
+          <p class="mt-8 mb-0 max-w-[36rem] text-[1.05rem] leading-[2] tracking-[0.025em] text-[#56565e] max-[700px]:text-base">
+            日々の作業や学習を、少し便利にするために作ったWebサービスです。
+          </p>
+        </section>
+
+        <div class="mt-16 grid gap-6 max-[700px]:mt-12">
+          {
+            works.map((work) => (
+              <article class="rounded-[22px] border border-[#19191d]/10 bg-white/80 p-9 shadow-[0_18px_55px_rgba(40,34,36,0.08)] backdrop-blur-[16px] max-[700px]:rounded-[18px] max-[700px]:p-6">
+                <div class="flex items-start justify-between gap-6">
+                  <p class="m-0 text-[0.72rem] font-bold tracking-[0.18em] text-[#76767c]">
+                    {work.category}
+                  </p>
+                  <span aria-hidden="true" class="text-[0.78rem] font-bold tracking-[0.12em] text-[#4d373d]/45">
+                    {work.number}
+                  </span>
+                </div>
+                <h2 class="mt-4 mb-0 text-[1.75rem] font-bold tracking-[-0.035em]">
+                  {work.title}
+                </h2>
+                <p class="mt-5 mb-0 text-[0.93rem] leading-[1.9] text-[#56565e]">
+                  {work.description}
+                </p>
+                <p class="mt-4 mb-0 border-l-2 border-[#4d373d]/20 pl-4 text-[0.82rem] leading-[1.8] text-[#67676d]">
+                  {work.purpose}
+                </p>
+                <ul class="mt-6 mb-0 flex list-none flex-wrap gap-2 p-0" aria-label={`${work.title}の使用技術`}>
+                  {work.technologies.map((technology) => (
+                    <li class="rounded-full border border-[#19191d]/10 bg-[#fcfcfc]/85 px-3 py-[6px] text-[0.72rem] font-bold text-[#56565e]">
+                      {technology}
+                    </li>
+                  ))}
+                </ul>
+                <div class="mt-7 flex flex-wrap gap-3 border-t border-[#19191d]/10 pt-6">
+                  {work.href && (
+                    <a
+                      class="group inline-flex min-h-11 items-center gap-2 rounded-full bg-[#4d373d] px-5 text-[0.8rem] font-bold text-white no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#39292d] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+                      href={work.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      サービスを見る
+                      <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none">↗</span>
+                    </a>
+                  )}
+                  <a
+                    class="group inline-flex min-h-11 items-center gap-2 rounded-full border border-[#4d373d]/15 bg-white/75 px-5 text-[0.8rem] font-bold text-[#4d373d] no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/30 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+                    href={work.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                    <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none">↗</span>
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <footer class="mt-24 border-t border-[#19191d]/10 pt-6 max-[700px]:mt-16">
+          <p class="m-0 text-[0.7rem] tracking-[0.08em] text-[#76767c]">© 2026 YUYU WEB</p>
+        </footer>
+      </div>
+    </main>
+    <GlobeBackground />
+  </body>
+</html>

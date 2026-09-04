@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yuyu-web.com/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </url>
   <url>
     <loc>https://yuyu-web.com/about/</loc>
     <lastmod>2026-08-08</lastmod>
+  </url>
+  <url>
+    <loc>https://yuyu-web.com/works/</loc>
+    <lastmod>2026-08-17</lastmod>
   </url>
 </urlset>

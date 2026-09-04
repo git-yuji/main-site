@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import GlobeBackground from "../components/GlobeBackground.astro";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="お探しのページは見つかりませんでした。" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>ページが見つかりません | YUYU WEB</title>
+    <ClientRouter />
+  </head>
+  <body
+    class="m-0 min-w-80 bg-[#fcfcfc] text-[#19191d] antialiased [font-family:'Hiragino_Kaku_Gothic_ProN','Hiragino_Sans','Yu_Gothic',YuGothic,system-ui,sans-serif]"
+  >
+    <main
+      data-globe-background
+      class="relative isolate grid min-h-svh overflow-hidden bg-[#fcfcfc] px-6 py-10 [&>canvas]:opacity-[0.2] max-[700px]:px-4 max-[700px]:py-6 max-[700px]:[&>canvas]:opacity-[0.13]"
+    >
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(252,252,252,0.18),rgba(252,252,252,0.72)_95%)]"
+      ></div>
+
+      <div class="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-3xl flex-col max-[700px]:min-h-[calc(100svh-3rem)]">
+        <header>
+          <a
+            class="inline-block text-[0.82rem] font-[750] tracking-[0.24em] text-inherit no-underline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#4d373d]/30"
+            href="/"
+            transition:name="site-title"
+          >
+            YUYU WEB
+          </a>
+        </header>
+
+        <section class="my-auto py-16 text-center" aria-labelledby="not-found-heading">
+          <p
+            aria-hidden="true"
+            class="m-0 [font-size:clamp(5.5rem,22vw,10rem)] leading-[0.85] font-bold tracking-[-0.075em] text-[#4d373d]/90"
+          >
+            404
+          </p>
+          <h1
+            id="not-found-heading"
+            class="mt-9 mb-0 [font-size:clamp(1.55rem,4vw,2.25rem)] font-bold tracking-[-0.035em]"
+          >
+            ページが見つかりません
+          </h1>
+          <p class="mx-auto mt-5 mb-0 max-w-[30rem] text-[0.92rem] leading-[1.9] text-[#67676d]">
+            URLが変更されたか、ページが削除された可能性があります。
+          </p>
+          <a
+            class="group mt-9 inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#4d373d]/15 bg-white/85 px-6 text-[0.86rem] font-bold text-[#4d373d] no-underline shadow-[0_10px_35px_rgba(40,34,36,0.08)] backdrop-blur-[12px] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/30 hover:shadow-[0_14px_40px_rgba(40,34,36,0.12)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+            href="/"
+          >
+            <span
+              aria-hidden="true"
+              class="transition-transform duration-200 group-hover:-translate-x-0.5 motion-reduce:transition-none"
+            >←</span>
+            トップへ戻る
+          </a>
+        </section>
+
+        <footer>
+          <p class="m-0 text-center text-[0.7rem] tracking-[0.08em] text-[#76767c]">© 2026 YUYU WEB</p>
+        </footer>
+      </div>
+    </main>
+    <GlobeBackground />
+  </body>
+</html>

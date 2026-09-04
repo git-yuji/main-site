@@ -19,6 +19,13 @@ const services = [
     external: true,
   },
   {
+    title: "制作物",
+    description: "作ったWebサービスを詳しく紹介",
+    label: "見る",
+    href: "/works/",
+    external: false,
+  },
+  {
     title: "プロフィール",
     description: "作っている人と、このサイトについて",
     label: "詳しく見る",
@@ -37,6 +44,19 @@ const services = [
       name="description"
       content="日々使う、小さなWebサービスをまとめています。"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="YUYU WEB" />
+    <meta property="og:title" content="YUYU WEB | Webサービス" />
+    <meta
+      property="og:description"
+      content="日々使う、小さなWebサービスをまとめています。"
+    />
+    <meta property="og:url" content="https://yuyu-web.com/" />
+    <meta property="og:image" content="https://yuyu-web.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="地球儀をあしらったYUYU WEBのイメージ" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://yuyu-web.com/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>YUYU WEB | Webサービス</title>
@@ -48,7 +68,7 @@ const services = [
     <main
       id="hero"
       data-globe-background
-      class="relative isolate grid min-h-svh overflow-hidden bg-[#fcfcfc] [&>canvas]:opacity-60 max-[700px]:[&>canvas]:opacity-[0.42]"
+      class="globe-static-strong relative isolate grid min-h-svh overflow-hidden bg-[#fcfcfc] [&>canvas]:opacity-60 max-[700px]:[&>canvas]:opacity-[0.42]"
     >
       <div
         aria-hidden="true"
@@ -83,7 +103,7 @@ const services = [
         </div>
 
         <div
-          class="pointer-events-auto grid w-full grid-cols-3 gap-[18px] max-[900px]:grid-cols-1 max-[700px]:gap-3"
+          class="pointer-events-auto grid w-full grid-cols-2 gap-[18px] max-[700px]:grid-cols-1 max-[700px]:gap-3"
           aria-label="サービス一覧"
         >
           {
