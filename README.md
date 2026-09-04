@@ -6,10 +6,10 @@
 
 | サービス | URL | 説明 |
 | --- | --- | --- |
-| YUYU WEB | <https://yuyu-web.com/> | 各サービスへの入口 |
-| プロフィール | <https://yuyu-web.com/about/> | プロフィールとサイトの技術構成 |
-| メールチェック | <https://mail.yuyu-web.com/> | メールを手軽に確認するWebアプリ |
-| 技術ブログ | <https://notes.yuyu-web.com/> | 記事や開発記録を掲載するブログ |
+| YUYU WEB | <a href="https://yuyu-web.com/" target="_blank" rel="noopener noreferrer">https://yuyu-web.com/</a> | 各サービスへの入口 |
+| プロフィール | <a href="https://yuyu-web.com/about/" target="_blank" rel="noopener noreferrer">https://yuyu-web.com/about/</a> | プロフィールとサイトの技術構成 |
+| メールチェック | <a href="https://mail.yuyu-web.com/" target="_blank" rel="noopener noreferrer">https://mail.yuyu-web.com/</a> | メールを手軽に確認するWebアプリ |
+| 技術ブログ | <a href="https://notes.yuyu-web.com/" target="_blank" rel="noopener noreferrer">https://notes.yuyu-web.com/</a> | 記事や開発記録を掲載するブログ |
 
 ## 特徴
 
@@ -45,7 +45,7 @@ npm install
 npm run dev
 ```
 
-起動後、<http://localhost:4321/>を開きます。
+起動後、<a href="http://localhost:4321/" target="_blank" rel="noopener noreferrer">http://localhost:4321/</a>を開きます。
 
 ## コマンド
 
