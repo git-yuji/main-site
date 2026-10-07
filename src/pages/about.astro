@@ -12,6 +12,19 @@ const technologies = [
   { name: "Cloudflare Workers", description: "静的サイトの配信" },
   { name: "Wrangler", description: "ビルドとデプロイ" },
 ];
+
+const links = [
+  {
+    title: "GitHub",
+    description: "制作物とソースコード",
+    href: "https://github.com/git-yuji",
+  },
+  {
+    title: "Blog",
+    description: "記事と開発記録",
+    href: "https://notes.yuyu-web.com/",
+  },
+];
 ---
 
 <ContentLayout
@@ -77,36 +90,23 @@ const technologies = [
           リンク
         </h2>
         <div class="mt-7 grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
-          <a
-            class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-            href="https://github.com/git-yuji"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="grid gap-2">
-              <span class="text-[1.05rem] font-[750]">GitHub</span>
-              <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">制作物とソースコード</span>
-            </span>
-            <span
-              aria-hidden="true"
-              class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-            >↗</span>
-          </a>
-          <a
-            class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-            href="https://notes.yuyu-web.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="grid gap-2">
-              <span class="text-[1.05rem] font-[750]">Blog</span>
-              <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">記事と開発記録</span>
-            </span>
-            <span
-              aria-hidden="true"
-              class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-            >↗</span>
-          </a>
+          {links.map((link) => (
+            <a
+              class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="grid gap-2">
+                <span class="text-[1.05rem] font-[750]">{link.title}</span>
+                <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">{link.description}</span>
+              </span>
+              <span
+                aria-hidden="true"
+                class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+              >↗</span>
+            </a>
+          ))}
         </div>
       </section>
     </article>
