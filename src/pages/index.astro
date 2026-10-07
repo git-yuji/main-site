@@ -1,4 +1,5 @@
 ---
+import { serviceUrls } from "../data/serviceUrls";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const services = [
@@ -6,14 +7,14 @@ const services = [
     title: "メールチェック",
     description: "メールを手軽に確認できます",
     label: "開く",
-    href: "https://mail.yuyu-web.com/",
+    href: serviceUrls.mail,
     external: true,
   },
   {
     title: "ブログ",
     description: "記事や開発記録を掲載しています",
     label: "読む",
-    href: "https://notes.yuyu-web.com/",
+    href: serviceUrls.blog,
     external: true,
   },
   {
