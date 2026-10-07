@@ -1,4 +1,5 @@
 ---
+import { serviceUrls } from "../data/serviceUrls";
 import ContentLayout from "../layouts/ContentLayout.astro";
 
 const works = [
@@ -10,7 +11,7 @@ const works = [
     purpose:
       "メール設定に詳しくない方にも、診断結果を確認・説明しやすい画面を目指して制作しました。",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare Workers"],
-    href: "https://mail.yuyu-web.com/",
+    href: serviceUrls.mail,
     github: "https://github.com/git-yuji/mail-checker-app",
   },
   {
@@ -21,7 +22,7 @@ const works = [
     purpose:
       "必要なときに知識を再利用できるよう、日々の記録を一か所に蓄積しています。",
     technologies: ["Next.js", "TypeScript", "React Markdown", "Cloudflare Workers"],
-    href: "https://notes.yuyu-web.com/",
+    href: serviceUrls.blog,
     github: "https://github.com/git-yuji/TechNotes",
   },
   {
