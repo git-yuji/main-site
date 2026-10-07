@@ -1,7 +1,5 @@
 ---
-import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
-import GlobeBackground from "../components/GlobeBackground.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
 
 const technologies = [
   { name: "Astro", description: "ページ生成とサイト全体の構築" },
@@ -16,159 +14,101 @@ const technologies = [
 ];
 ---
 
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta
-      name="description"
-      content="YUYUのプロフィールと、YUYU WEBの技術構成を紹介します。"
-    />
-    <meta property="og:type" content="profile" />
-    <meta property="og:site_name" content="YUYU WEB" />
-    <meta property="og:title" content="プロフィール | YUYU WEB" />
-    <meta
-      property="og:description"
-      content="YUYUのプロフィールと、YUYU WEBの技術構成を紹介します。"
-    />
-    <meta property="og:url" content="https://yuyu-web.com/about/" />
-    <meta property="og:image" content="https://yuyu-web.com/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="地球儀をあしらったYUYU WEBのイメージ" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://yuyu-web.com/about/" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <title>プロフィール | YUYU WEB</title>
-    <ClientRouter />
-  </head>
-  <body
-    class="m-0 min-w-80 bg-[#fcfcfc] text-[#19191d] antialiased [font-family:'Hiragino_Kaku_Gothic_ProN','Hiragino_Sans','Yu_Gothic',YuGothic,system-ui,sans-serif]"
-  >
-    <main
-      data-globe-background
-      class="relative isolate min-h-svh overflow-hidden px-6 py-10 [&>canvas]:opacity-[0.18] max-[700px]:px-4 max-[700px]:py-6 max-[700px]:[&>canvas]:opacity-[0.12]"
-    >
-      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-20 bg-[#fcfcfc]"></div>
-      <div
-        aria-hidden="true"
-        class="pointer-events-none absolute top-[-18rem] left-1/2 -z-10 size-[48rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(77,55,61,0.12),rgba(252,252,252,0)_68%)] max-[700px]:top-[-12rem] max-[700px]:size-[32rem]"
-      ></div>
+<ContentLayout
+  title="プロフィール | YUYU WEB"
+  description="YUYUのプロフィールと、YUYU WEBの技術構成を紹介します。"
+  path="/about/"
+  ogType="profile"
+  background="profile"
+>
+    <article class="mt-20 max-[700px]:mt-14">
+      <section aria-labelledby="profile-heading">
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">PROFILE</p>
+        <h1
+          id="profile-heading"
+          class="mt-4 mb-0 [font-size:clamp(2.8rem,9vw,5rem)] leading-none font-bold tracking-[-0.045em]"
+        >
+          YUYU
+        </h1>
+        <p class="mt-8 mb-0 max-w-[36rem] text-[1.05rem] leading-[2] tracking-[0.025em] text-[#56565e] max-[700px]:text-base">
+          Webサイトや、日々を少し便利にする小さなツールを作っています。<br class="max-[560px]:hidden" />
+          シンプルで使いやすく、長く使えるものが好きです。
+        </p>
+      </section>
 
-      <div class="relative z-10 mx-auto w-full max-w-3xl">
-        <header class="flex items-center justify-between gap-6">
+      <section
+        class="mt-20 rounded-[22px] border border-[#19191d]/10 bg-white/80 p-9 shadow-[0_18px_55px_rgba(40,34,36,0.08)] backdrop-blur-[16px] max-[700px]:mt-14 max-[700px]:rounded-[18px] max-[700px]:p-6"
+        aria-labelledby="site-heading"
+      >
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">ABOUT THIS SITE</p>
+        <h2 id="site-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
+          このサイトについて
+        </h2>
+        <p class="mt-5 mb-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
+          YUYU WEBは、制作したWebサービスをまとめるためのポータルサイトです。シンプルで軽快な表示を意識し、Astroを使った静的サイトとして構築しています。
+        </p>
+      </section>
+
+      <section class="mt-20 max-[700px]:mt-14" aria-labelledby="technology-heading">
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">TECHNOLOGY</p>
+        <h2 id="technology-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
+          技術構成
+        </h2>
+        <div class="mt-7 grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
+          {
+            technologies.map((technology) => (
+              <div class="rounded-[16px] border border-[#19191d]/10 bg-white/70 px-5 py-[18px]">
+                <h3 class="m-0 text-[0.98rem] font-[750]">{technology.name}</h3>
+                <p class="mt-2 mb-0 text-[0.78rem] leading-[1.65] text-[#67676d]">
+                  {technology.description}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-6 mb-0 text-[0.86rem] leading-[1.8] text-[#67676d]">
+          表示速度とメンテナンスのしやすさを大切にしながら、できるだけシンプルな構成にしています。
+        </p>
+      </section>
+
+      <section class="mt-20 max-[700px]:mt-14" aria-labelledby="links-heading">
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">LINKS</p>
+        <h2 id="links-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
+          リンク
+        </h2>
+        <div class="mt-7 grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
           <a
-            class="text-[0.82rem] font-[750] tracking-[0.24em] text-inherit no-underline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#4d373d]/30"
-            href="/"
-            transition:name="site-title"
+            class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+            href="https://github.com/git-yuji"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            YUYU WEB
+            <span class="grid gap-2">
+              <span class="text-[1.05rem] font-[750]">GitHub</span>
+              <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">制作物とソースコード</span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+            >↗</span>
           </a>
           <a
-            class="group inline-flex items-center gap-2 text-[0.82rem] font-bold text-[#4d373d] no-underline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#4d373d]/30"
-            href="/"
+            class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+            href="https://notes.yuyu-web.com/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <span aria-hidden="true" class="transition-transform duration-200 group-hover:-translate-x-1 motion-reduce:transition-none">←</span>
-            トップへ
+            <span class="grid gap-2">
+              <span class="text-[1.05rem] font-[750]">Blog</span>
+              <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">記事と開発記録</span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+            >↗</span>
           </a>
-        </header>
+        </div>
+      </section>
+    </article>
 
-        <article class="mt-20 max-[700px]:mt-14">
-          <section aria-labelledby="profile-heading">
-            <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">PROFILE</p>
-            <h1
-              id="profile-heading"
-              class="mt-4 mb-0 [font-size:clamp(2.8rem,9vw,5rem)] leading-none font-bold tracking-[-0.045em]"
-            >
-              YUYU
-            </h1>
-            <p class="mt-8 mb-0 max-w-[36rem] text-[1.05rem] leading-[2] tracking-[0.025em] text-[#56565e] max-[700px]:text-base">
-              Webサイトや、日々を少し便利にする小さなツールを作っています。<br class="max-[560px]:hidden" />
-              シンプルで使いやすく、長く使えるものが好きです。
-            </p>
-          </section>
-
-          <section
-            class="mt-20 rounded-[22px] border border-[#19191d]/10 bg-white/80 p-9 shadow-[0_18px_55px_rgba(40,34,36,0.08)] backdrop-blur-[16px] max-[700px]:mt-14 max-[700px]:rounded-[18px] max-[700px]:p-6"
-            aria-labelledby="site-heading"
-          >
-            <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">ABOUT THIS SITE</p>
-            <h2 id="site-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
-              このサイトについて
-            </h2>
-            <p class="mt-5 mb-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
-              YUYU WEBは、制作したWebサービスをまとめるためのポータルサイトです。シンプルで軽快な表示を意識し、Astroを使った静的サイトとして構築しています。
-            </p>
-          </section>
-
-          <section class="mt-20 max-[700px]:mt-14" aria-labelledby="technology-heading">
-            <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">TECHNOLOGY</p>
-            <h2 id="technology-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
-              技術構成
-            </h2>
-            <div class="mt-7 grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
-              {
-                technologies.map((technology) => (
-                  <div class="rounded-[16px] border border-[#19191d]/10 bg-white/70 px-5 py-[18px]">
-                    <h3 class="m-0 text-[0.98rem] font-[750]">{technology.name}</h3>
-                    <p class="mt-2 mb-0 text-[0.78rem] leading-[1.65] text-[#67676d]">
-                      {technology.description}
-                    </p>
-                  </div>
-                ))
-              }
-            </div>
-            <p class="mt-6 mb-0 text-[0.86rem] leading-[1.8] text-[#67676d]">
-              表示速度とメンテナンスのしやすさを大切にしながら、できるだけシンプルな構成にしています。
-            </p>
-          </section>
-
-          <section class="mt-20 max-[700px]:mt-14" aria-labelledby="links-heading">
-            <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">LINKS</p>
-            <h2 id="links-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
-              リンク
-            </h2>
-            <div class="mt-7 grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
-              <a
-                class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-                href="https://github.com/git-yuji"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="grid gap-2">
-                  <span class="text-[1.05rem] font-[750]">GitHub</span>
-                  <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">制作物とソースコード</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-                >↗</span>
-              </a>
-              <a
-                class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-                href="https://notes.yuyu-web.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="grid gap-2">
-                  <span class="text-[1.05rem] font-[750]">Blog</span>
-                  <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">記事と開発記録</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-                >↗</span>
-              </a>
-            </div>
-          </section>
-        </article>
-
-        <footer class="mt-24 border-t border-[#19191d]/10 pt-6 max-[700px]:mt-16">
-          <p class="m-0 text-[0.7rem] tracking-[0.08em] text-[#76767c]">© 2026 YUYU WEB</p>
-        </footer>
-      </div>
-    </main>
-    <GlobeBackground />
-  </body>
-</html>
+</ContentLayout>

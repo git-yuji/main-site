@@ -1,0 +1,53 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import type { Props as BaseProps } from "./BaseLayout.astro";
+
+interface Props extends BaseProps {
+  background?: "profile" | "works";
+}
+
+const { background = "works", ...pageProps } = Astro.props;
+---
+
+<BaseLayout {...pageProps}>
+  <main
+    data-globe-background
+    class:list={[
+      "relative isolate min-h-svh overflow-hidden px-6 py-10 max-[700px]:px-4 max-[700px]:py-6",
+      background === "profile"
+        ? "[&>canvas]:opacity-[0.18] max-[700px]:[&>canvas]:opacity-[0.12]"
+        : "[&>canvas]:opacity-[0.16] max-[700px]:[&>canvas]:opacity-[0.1]",
+    ]}
+  >
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-20 bg-[#fcfcfc]"></div>
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute top-[-18rem] left-1/2 -z-10 size-[48rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(77,55,61,0.12),rgba(252,252,252,0)_68%)] max-[700px]:top-[-12rem] max-[700px]:size-[32rem]"
+    ></div>
+
+    <div class="relative z-10 mx-auto w-full max-w-3xl">
+      <header class="flex items-center justify-between gap-6">
+        <a
+          class="text-[0.82rem] font-[750] tracking-[0.24em] text-inherit no-underline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#4d373d]/30"
+          href="/"
+          transition:name="site-title"
+        >
+          YUYU WEB
+        </a>
+        <a
+          class="group inline-flex items-center gap-2 text-[0.82rem] font-bold text-[#4d373d] no-underline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#4d373d]/30"
+          href="/"
+        >
+          <span aria-hidden="true" class="transition-transform duration-200 group-hover:-translate-x-1 motion-reduce:transition-none">←</span>
+          トップへ
+        </a>
+      </header>
+
+      <slot />
+
+      <footer class="mt-24 border-t border-[#19191d]/10 pt-6 max-[700px]:mt-16">
+        <p class="m-0 text-[0.7rem] tracking-[0.08em] text-[#76767c]">© 2026 YUYU WEB</p>
+      </footer>
+    </div>
+  </main>
+</BaseLayout>
