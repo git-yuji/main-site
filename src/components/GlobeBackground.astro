@@ -1,28 +1,20 @@
 <script>
-  import * as THREE from "three";
-  import * as GlobeModule from "vanta/dist/vanta.globe.min";
-
   type GlobeFactory = (options: Record<string, unknown>) => {
     destroy: () => void;
   };
 
-  const globeModule = GlobeModule as unknown as {
-    default?: GlobeFactory | { default?: GlobeFactory };
-  };
-  const GLOBE =
-    typeof globeModule.default === "function"
-      ? globeModule.default
-      : globeModule.default?.default;
-
   let effect: { destroy: () => void } | undefined;
   const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  let generation = 0;
+
   const destroyGlobe = () => {
+    generation += 1;
     effect?.destroy();
     effect = undefined;
   };
 
-  const initializeGlobe = () => {
+  const initializeGlobe = async () => {
     destroyGlobe();
 
     const background = document.querySelector<HTMLElement>(
@@ -31,31 +23,50 @@
     if (!background) return;
     if (motionPreference.matches) return;
 
-    if (!GLOBE) {
-      console.error("Vanta Globeの読み込みに失敗しました。");
-      return;
-    }
+    const currentGeneration = generation;
+    try {
+      const [THREE, GlobeModule] = await Promise.all([
+        import("three"),
+        import("vanta/dist/vanta.globe.min"),
+      ]);
 
-    effect = GLOBE({
-      el: background,
-      THREE,
-      backgroundAlpha: 1,
-      backgroundColor: 16579836,
-      color: 5060413,
-      color2: 16777215,
-      gyroControls: false,
-      maxDistance: 20,
-      minHeight: 200,
-      minWidth: 200,
-      mouseControls: true,
-      points: 10,
-      scale: 1,
-      scaleMobile: 1,
-      showDots: true,
-      size: 2,
-      spacing: 15,
-      touchControls: true,
-    });
+      // Ignore loads superseded by navigation or a motion preference change.
+      if (currentGeneration !== generation || !background.isConnected || motionPreference.matches) return;
+
+      const globeModule = GlobeModule as unknown as {
+        default?: GlobeFactory | { default?: GlobeFactory };
+      };
+      const GLOBE =
+        typeof globeModule.default === "function"
+          ? globeModule.default
+          : globeModule.default?.default;
+      if (!GLOBE) throw new Error("Vanta Globeの読み込みに失敗しました。");
+
+      effect = GLOBE({
+        el: background,
+        THREE,
+        backgroundAlpha: 1,
+        backgroundColor: 16579836,
+        color: 5060413,
+        color2: 16777215,
+        gyroControls: false,
+        maxDistance: 20,
+        minHeight: 200,
+        minWidth: 200,
+        mouseControls: true,
+        points: 10,
+        scale: 1,
+        scaleMobile: 1,
+        showDots: true,
+        size: 2,
+        spacing: 15,
+        touchControls: true,
+      });
+    } catch (error) {
+      if (currentGeneration === generation) {
+        console.error("地球背景の初期化に失敗しました。", error);
+      }
+    }
   };
 
   document.addEventListener("astro:page-load", initializeGlobe);
