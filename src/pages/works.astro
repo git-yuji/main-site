@@ -3,7 +3,6 @@ import ContentLayout from "../layouts/ContentLayout.astro";
 
 const works = [
   {
-    number: "01",
     category: "WEB TOOL",
     title: "メール設定診断",
     description:
@@ -15,7 +14,6 @@ const works = [
     github: "https://github.com/git-yuji/mail-checker-app",
   },
   {
-    number: "02",
     category: "KNOWLEDGE BASE",
     title: "Tech Notes",
     description:
@@ -27,7 +25,6 @@ const works = [
     github: "https://github.com/git-yuji/TechNotes",
   },
   {
-    number: "03",
     category: "TYPESCRIPT LEARNING",
     title: "TypeScript Simple Todo",
     description:
@@ -39,7 +36,6 @@ const works = [
     github: "https://github.com/git-yuji/typescript-simple-todo",
   },
   {
-    number: "04",
     category: "TYPESCRIPT LEARNING",
     title: "TypeScript Site Checker",
     description:
@@ -51,7 +47,6 @@ const works = [
     github: "https://github.com/git-yuji/typescript-site-checker",
   },
   {
-    number: "05",
     category: "PHP LEARNING",
     title: "Mini Todo",
     description:
@@ -63,7 +58,6 @@ const works = [
     github: "https://github.com/git-yuji/php-simple-todo",
   },
   {
-    number: "06",
     category: "PHP LEARNING",
     title: "My Bookmarks",
     description:
@@ -75,7 +69,6 @@ const works = [
     github: "https://github.com/git-yuji/php-bookmarks",
   },
   {
-    number: "07",
     category: "WEB MONITORING",
     title: "Web Health Monitor",
     description:
@@ -87,7 +80,6 @@ const works = [
     github: "https://github.com/git-yuji/web-health-monitor",
   },
   {
-    number: "08",
     category: "REACT LEARNING",
     title: "React Simple Todo",
     description:
@@ -121,14 +113,14 @@ const works = [
 
     <div class="mt-16 grid gap-6 max-[700px]:mt-12">
       {
-        works.map((work) => (
+        works.map((work, index) => (
           <article class="rounded-[22px] border border-[#19191d]/10 bg-white/80 p-9 shadow-[0_18px_55px_rgba(40,34,36,0.08)] backdrop-blur-[16px] max-[700px]:rounded-[18px] max-[700px]:p-6">
             <div class="flex items-start justify-between gap-6">
               <p class="m-0 text-[0.72rem] font-bold tracking-[0.18em] text-[#76767c]">
                 {work.category}
               </p>
               <span aria-hidden="true" class="text-[0.78rem] font-bold tracking-[0.12em] text-[#4d373d]/45">
-                {work.number}
+                {String(index + 1).padStart(2, "0")}
               </span>
             </div>
             <h2 class="mt-4 mb-0 text-[1.75rem] font-bold tracking-[-0.035em]">
