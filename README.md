@@ -86,10 +86,15 @@ main-site/
 │   ├── robots.txt       # クローラー制御
 │   └── sitemap.xml      # Search Consoleへ送信するサイトマップ
 ├── src/
+│   ├── components/
+│   │   └── GlobeBackground.astro # 地球背景とアニメーション制御
+│   ├── layouts/
+│   │   ├── BaseLayout.astro    # 共通メタ情報とページの基本構造
+│   │   └── ContentLayout.astro # 下層ページの背景・ヘッダー・フッター
 │   ├── pages/
 │   │   ├── 404.astro    # ページが見つからない場合の案内
 │   │   ├── about.astro  # プロフィールと技術構成
-│   │   ├── index.astro  # メインページとVanta.jsの設定
+│   │   ├── index.astro  # メインページ
 │   │   └── works.astro  # 制作物の紹介
 │   └── styles/
 │       └── global.css   # Tailwind CSSの読み込み
