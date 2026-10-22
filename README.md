@@ -39,13 +39,19 @@
 
 ### 必要な環境
 
-- Node.js
+- Node.js 22.23.4（`.nvmrc` / `.node-version`で指定）
 - npm
+
+2026年10月21日公開の[Node.jsセキュリティ更新](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases)に対応しています。別のメジャーバージョンを使う場合も、`package.json`の`engines.node`を満たす修正版を使用してください。
+
+Cloudflareのビルド環境で`NODE_VERSION`を明示している場合は、22.23.4に更新してください。静的ファイル配信自体はNode.jsを実行しませんが、開発・ビルド・Wrangler実行環境には更新が必要です。
 
 ### セットアップ
 
 ```sh
-npm install
+nvm install
+nvm use
+npm ci
 npm run dev
 ```
 
