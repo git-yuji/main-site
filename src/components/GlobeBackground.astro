@@ -20,7 +20,7 @@
     const background = document.querySelector<HTMLElement>(
       "[data-globe-background]",
     );
-    if (!background) return;
+    if (!background || background.hasAttribute("data-globe-static")) return;
     if (motionPreference.matches) return;
 
     const currentGeneration = generation;
@@ -84,22 +84,30 @@
 
 <style is:global>
   [data-globe-background]::before {
-    content: none;
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    display: none;
+    content: "";
+    pointer-events: none;
+    background-image: url("/globe-static.svg");
+    background-repeat: no-repeat;
+    background-position: right -12rem center;
+    background-size: min(78vw, 62rem) auto;
+    opacity: 0.16;
+  }
+
+  [data-globe-static]::before {
+    display: block;
+  }
+
+  [data-globe-static="profile"]::before {
+    opacity: 0.18;
   }
 
   @media (prefers-reduced-motion: reduce) {
     [data-globe-background]::before {
-      position: absolute;
-      z-index: 0;
-      inset: 0;
       display: block;
-      content: "";
-      pointer-events: none;
-      background-image: url("/globe-static.svg");
-      background-repeat: no-repeat;
-      background-position: right -12rem center;
-      background-size: min(78vw, 62rem) auto;
-      opacity: 0.16;
     }
 
     [data-globe-background].globe-static-strong::before {
@@ -107,13 +115,19 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) and (max-width: 700px) {
+  @media (max-width: 700px) {
     [data-globe-background]::before {
       background-position: center;
       background-size: 46rem auto;
       opacity: 0.1;
     }
 
+    [data-globe-static="profile"]::before {
+      opacity: 0.12;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) and (max-width: 700px) {
     [data-globe-background].globe-static-strong::before {
       opacity: 0.28;
     }
