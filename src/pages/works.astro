@@ -10,7 +10,12 @@ const works = [
       "ドメインを入力すると、メール送受信に関係するSPF・DMARC・MXレコードを確認できるWebツールです。設定状況と補足情報をカード形式で整理します。",
     purpose:
       "メール設定に詳しくない方にも、診断結果を確認・説明しやすい画面を目指して制作しました。",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare Workers"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Cloudflare Workers",
+    ],
     href: serviceUrls.mail,
     github: "https://github.com/git-yuji/mail-checker-app",
   },
@@ -21,7 +26,12 @@ const works = [
       "学習内容や設定手順、トラブル対応を記録する個人用の技術ナレッジ管理アプリです。カテゴリやタグ、キーワードから目的のノートを探せます。",
     purpose:
       "必要なときに知識を再利用できるよう、日々の記録を一か所に蓄積しています。",
-    technologies: ["Next.js", "TypeScript", "React Markdown", "Cloudflare Workers"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "React Markdown",
+      "Cloudflare Workers",
+    ],
     href: serviceUrls.blog,
     github: "https://github.com/git-yuji/TechNotes",
   },
@@ -103,79 +113,314 @@ const works = [
     github: "https://github.com/git-yuji/laravel-project-manager",
   },
 ];
+
+const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
 ---
 
 <ContentLayout
   title="制作物 | YUYU WEB"
-  description="YUYUが制作したWebサービスを紹介します。"
+  description="日々の課題から生まれたWebサービスと、学びを形にした制作物を紹介します。"
   path="/works/"
+  wide
 >
-    <section class="mt-20 max-[700px]:mt-14" aria-labelledby="works-heading">
-      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">WORKS</p>
+  <section
+    class="grid grid-cols-[1.5fr_1fr] items-center gap-12 pt-24 pb-20 max-[700px]:grid-cols-1 max-[700px]:gap-8 max-[700px]:py-14"
+    aria-labelledby="works-heading"
+  >
+    <div>
+      <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+        DESIGN · BUILD · LEARN
+      </p>
       <h1
         id="works-heading"
-        class="mt-4 mb-0 [font-size:clamp(2.8rem,9vw,5rem)] leading-none font-bold tracking-[-0.045em]"
+        class="my-[1.4rem] [font-size:clamp(2.5rem,5.5vw,4.25rem)] leading-[1.35] tracking-[-0.065em]"
       >
-        制作物
+        小さな課題から、
+        <br />
+        使えるかたちへ<span class="text-[#987c83]">。</span>
       </h1>
-      <p class="mt-8 mb-0 max-w-[36rem] text-[1.05rem] leading-[2] tracking-[0.025em] text-[#56565e] max-[700px]:text-base">
-        日々の作業や学習を、少し便利にするために作ったWebサービスです。
+      <p class="text-[0.94rem] leading-[2.1] text-[#67616a] max-[700px]:text-[0.85rem]">
+        日々の作業を、少し便利に。
+        <br />
+        実用的なWebサービスから、学びを深めるアプリまで。
+        <br class="max-[700px]:hidden" />
+        考えて、作って、改善してきた制作物をまとめました。
       </p>
-    </section>
+      <a
+        class="mt-4 inline-flex items-center gap-6 text-[0.8rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+        href="#projects"
+      >
+        制作物を探す <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <aside
+      class="relative overflow-hidden rounded-[50%_50%_1.5rem_1.5rem] border border-[#4d373d20] bg-[linear-gradient(145deg,#eee5e4c9,#ffffff9c)] p-8 text-center max-[700px]:hidden"
+      aria-label="制作物の概要"
+    >
+      <span class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c] mt-8 block">
+        WORKS COLLECTION
+      </span>
+      <div class="text-[7rem] leading-[1.3] font-medium tracking-[-0.08em] text-[#4d373d]">
+        {String(works.length).padStart(2, "0")}
+        <span class="block text-[0.65rem] tracking-[0.3em]">PROJECTS</span>
+      </div>
+      <div class="mt-8 grid gap-[0.6rem] border-t border-[#4d373d20] pt-6 text-[0.72rem] text-[#78666c]">
+        <span>アイデアを、実装へ。</span>
+        <span>{works.filter((work) => work.href).length} services online</span>
+      </div>
+    </aside>
+  </section>
 
-    <div class="mt-16 grid gap-6 max-[700px]:mt-12">
-      {
-        works.map((work, index) => (
-          <article class="rounded-[22px] border border-[#19191d]/10 bg-white/80 p-9 shadow-[0_18px_55px_rgba(40,34,36,0.08)] backdrop-blur-[16px] max-[700px]:rounded-[18px] max-[700px]:p-6">
-            <div class="flex items-start justify-between gap-6">
-              <p class="m-0 text-[0.72rem] font-bold tracking-[0.18em] text-[#76767c]">
+  <section aria-labelledby="featured-heading">
+    <div class="mb-[1.8rem] flex items-end justify-between gap-4">
+      <div>
+        <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+          FEATURED WORKS
+        </p>
+        <h2
+          id="featured-heading"
+          class="mt-[0.7rem] mb-0 text-[1.6rem] tracking-[-0.04em]"
+        >
+          公開中のサービス
+        </h2>
+      </div>
+      <span class="text-xs text-[#797079] max-[700px]:hidden">
+        日々の「ちょっと便利」をつくる
+      </span>
+    </div>
+    <div class="grid grid-cols-2 gap-6 max-[700px]:grid-cols-1">
+      {works
+        .filter((work) => work.href)
+        .map((work, index) => (
+          <article class="overflow-hidden rounded-3xl border border-[#4d373d18] bg-white shadow-[0_15px_45px_#4d373d08]">
+            <div
+              class:list={[
+                "relative isolate flex h-60 flex-col justify-between overflow-hidden p-[1.7rem]",
+                index === 1
+                  ? "bg-[#dde5df] text-[#354c40]"
+                  : "bg-[#61474f] text-[#f8efec]",
+              ]}
+              aria-hidden="true"
+            >
+              <div class="absolute -top-12 -right-12 -z-1 size-80 rounded-full border border-current opacity-[0.18] shadow-[0_0_0_2rem_#ffffff12,0_0_0_4rem_#ffffff0a]"></div>
+              <span class="text-[0.6rem] tracking-[0.18em]">
+                {index === 0 ? "DOMAIN INSIGHT" : "YOUR KNOWLEDGE, CONNECTED"}
+              </span>
+              <div class="self-center text-8xl leading-none tracking-[-0.1em] [font-family:Georgia,serif]">
+                {index === 0 ? "@" : "Aa"}
+                <span class="ml-4 align-top font-sans text-[2rem]">↗</span>
+              </div>
+              <div class="flex gap-[0.6rem]">
+                {(index === 0
+                  ? ["SPF", "DMARC", "MX"]
+                  : ["NOTES", "TAGS", "SEARCH"]
+                ).map((label) => (
+                  <span
+                    class:list={[
+                      "rounded-[2rem] border px-[0.65rem] py-[0.35rem] text-[0.55rem] tracking-[0.12em]",
+                      index === 1 ? "border-[#354c4030]" : "border-[#ffffff50]",
+                    ]}
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div class="p-8 max-[700px]:p-6">
+              <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+                <span class="mr-2 inline-block size-[0.4rem] rounded-full bg-[#69846d]"></span>
                 {work.category}
               </p>
-              <span aria-hidden="true" class="text-[0.78rem] font-bold tracking-[0.12em] text-[#4d373d]/45">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-            </div>
-            <h2 class="mt-4 mb-0 text-[1.75rem] font-bold tracking-[-0.035em]">
-              {work.title}
-            </h2>
-            <p class="mt-5 mb-0 text-[0.93rem] leading-[1.9] text-[#56565e]">
-              {work.description}
-            </p>
-            <p class="mt-4 mb-0 border-l-2 border-[#4d373d]/20 pl-4 text-[0.82rem] leading-[1.8] text-[#67676d]">
-              {work.purpose}
-            </p>
-            <ul class="mt-6 mb-0 flex list-none flex-wrap gap-2 p-0" aria-label={`${work.title}の使用技術`}>
-              {work.technologies.map((technology) => (
-                <li class="rounded-full border border-[#19191d]/10 bg-[#fcfcfc]/85 px-3 py-[6px] text-[0.72rem] font-bold text-[#56565e]">
-                  {technology}
-                </li>
-              ))}
-            </ul>
-            <div class="mt-7 flex flex-wrap gap-3 border-t border-[#19191d]/10 pt-6">
-              {work.href && (
-                <a
-                  class="group inline-flex min-h-11 items-center gap-2 rounded-full bg-[#4d373d] px-5 text-[0.8rem] font-bold text-white no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#39292d] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-                  href={work.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  サービスを見る
-                  <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none">↗</span>
-                </a>
-              )}
+              <h3 class="my-[0.9rem] text-[1.35rem] tracking-[-0.035em] [overflow-wrap:anywhere]">
+                {work.title}
+              </h3>
+              <p class="text-[0.85rem] leading-[1.95] text-[#65616a]">
+                {work.description}
+              </p>
               <a
-                class="group inline-flex min-h-11 items-center gap-2 rounded-full border border-[#4d373d]/15 bg-white/75 px-5 text-[0.8rem] font-bold text-[#4d373d] no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/30 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-                href={work.github}
+                class="mt-6 flex justify-between border-t border-[#4d373d20] pt-4 text-[0.8rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+                href={work.href!}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub
-                <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none">↗</span>
+                サービスを見る{" "}
+                <span class="ml-[0.6rem]" aria-hidden="true">
+                  ↗
+                </span>
+                <span class="sr-only">（新しいタブで開きます）</span>
               </a>
             </div>
           </article>
-        ))
-      }
+        ))}
     </div>
+  </section>
 
+  <section
+    id="projects"
+    class="scroll-mt-8 pt-20 max-[700px]:pt-14"
+    aria-labelledby="projects-heading"
+  >
+    <div class="mb-[1.8rem] flex items-end justify-between gap-4">
+      <div>
+        <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+          ALL PROJECTS
+        </p>
+        <h2
+          id="projects-heading"
+          class="mt-[0.7rem] mb-0 text-[1.6rem] tracking-[-0.04em]"
+        >
+          制作の記録
+        </h2>
+      </div>
+      <p class="text-xs text-[#797079]" aria-live="polite" aria-atomic="true">
+        <span data-project-count>{works.length}</span> projects
+      </p>
+    </div>
+    <div
+      class="mb-6 flex flex-wrap gap-2 [&[hidden]]:hidden"
+      role="group"
+      aria-label="制作物を絞り込む"
+      hidden
+      data-project-filters
+    >
+      {filters.map((filter, index) => (
+        <button
+          class="cursor-pointer rounded-[2rem] border border-[#4d373d20] bg-[#ffffffaa] px-[1.1rem] py-[0.65rem] text-xs text-[#65535b] aria-pressed:border-[#4d373d] aria-pressed:bg-[#4d373d] aria-pressed:text-white focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+          type="button"
+          data-filter={filter}
+          aria-pressed={index === 0}
+        >
+          {filter}
+        </button>
+      ))}
+    </div>
+    <div class="grid grid-cols-2 gap-6 max-[700px]:grid-cols-1">
+      {works.map((work, index) => (
+        <article
+          class="flex min-w-0 flex-col rounded-[1.2rem] border border-[#4d373d1c] bg-[#ffffffdd] p-[1.8rem] transition-[border-color,box-shadow] duration-200 hover:border-[#4d373d50] hover:shadow-[0_12px_32px_#4d373d08] motion-reduce:transition-none max-[700px]:p-6 [&[hidden]]:hidden"
+          data-project
+          data-technologies={work.technologies.join(",")}
+          data-live={Boolean(work.href)}
+        >
+          <div class="flex items-center justify-between gap-4">
+            <span class="m-0 text-[0.58rem] font-bold tracking-[0.16em] text-[#78666c]">
+              {work.category}
+            </span>
+            <span
+              class="text-[1.4rem] text-[#aa979d] [font-family:Georgia,serif]"
+              aria-hidden="true"
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <h3 class="my-[0.9rem] text-[1.35rem] tracking-[-0.035em] [overflow-wrap:anywhere]">
+            {work.title}
+          </h3>
+          <p class="mt-0 mb-4 text-[0.85rem] leading-[1.95] text-[#65616a]">
+            {work.description}
+          </p>
+          <details class="text-[0.78rem] leading-[1.9] text-[#70666b]">
+            <summary class="w-fit cursor-pointer text-[#4d373d] focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]">
+              制作の背景
+            </summary>
+            <p class="my-[0.7rem]">{work.purpose}</p>
+          </details>
+          <ul
+            class="mt-auto mb-0 flex list-none flex-wrap gap-[0.4rem] px-0 py-[1.4rem]"
+            aria-label={`${work.title}の使用技術`}
+          >
+            {work.technologies.map((technology) => (
+              <li class="rounded-[0.35rem] bg-[#f3f0f1] px-[0.6rem] py-[0.3rem] text-[0.62rem] text-[#6d5c64]">
+                {technology}
+              </li>
+            ))}
+          </ul>
+          <div class="flex justify-between gap-4 border-t border-[#4d373d15] pt-4">
+            <a
+              class="text-xs font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+              href={work.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${work.title}のGitHub（新しいタブで開きます）`}
+            >
+              GitHub{" "}
+              <span class="ml-[0.6rem]" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            {work.href && (
+              <a
+                class="text-xs font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+                href={work.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${work.title}のサービス（新しいタブで開きます）`}
+              >
+                サービスを見る{" "}
+                <span class="ml-[0.6rem]" aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="mt-12 flex items-center gap-[1.3rem] border-t border-[#4d373d20] py-8 max-[700px]:flex-wrap max-[700px]:gap-4">
+      <span class="text-[2.7rem] text-[#987c83]" aria-hidden="true">
+        ✳
+      </span>
+      <p class="text-[0.9rem] leading-[1.9]">
+        学んだことを、次の制作へ。
+        <br />
+        <span class="text-xs text-[#797079]">
+          これからも、少しずつ積み重ねていきます。
+        </span>
+      </p>
+      <a
+        class="ml-auto inline-flex items-center gap-6 text-[0.8rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83] max-[700px]:m-0 max-[700px]:basis-full"
+        href="/about/"
+      >
+        プロフィールを見る ↗
+      </a>
+    </div>
+  </section>
 </ContentLayout>
+
+<script>
+  function initializeFilters() {
+    const controls = document.querySelector<HTMLElement>(
+      "[data-project-filters]",
+    );
+    if (!controls || controls.dataset.initialized) return;
+    controls.dataset.initialized = "true";
+    controls.hidden = false;
+    const projects = document.querySelectorAll<HTMLElement>("[data-project]");
+    controls.addEventListener("click", (event) => {
+      const button = (event.target as Element).closest<HTMLButtonElement>(
+        "button[data-filter]",
+      );
+      if (!button) return;
+      const filter = button.dataset.filter;
+      let count = 0;
+      projects.forEach((project) => {
+        const matches =
+          filter === "すべて" ||
+          (filter === "公開中"
+            ? project.dataset.live === "true"
+            : project.dataset.technologies?.split(",").includes(filter ?? ""));
+        project.hidden = !matches;
+        if (matches) count++;
+      });
+      controls
+        .querySelectorAll("button")
+        .forEach((item) =>
+          item.setAttribute("aria-pressed", String(item === button)),
+        );
+      const output = document.querySelector("[data-project-count]");
+      if (output) output.textContent = String(count);
+    });
+  }
+  initializeFilters();
+  document.addEventListener("astro:page-load", initializeFilters);
+</script>
