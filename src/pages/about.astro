@@ -1,5 +1,6 @@
 ---
 import { serviceUrls } from "../data/serviceUrls";
+import SectionHeading from "../components/SectionHeading.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
 
 const technologies = [
@@ -107,15 +108,9 @@ const principles = [
     </section>
 
     <section class="mt-20 max-[700px]:mt-14" aria-labelledby="approach-heading">
-      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
-        MY APPROACH
-      </p>
-      <h2
-        id="approach-heading"
-        class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
-      >
+      <SectionHeading id="approach-heading" label="MY APPROACH">
         制作で大切にしていること
-      </h2>
+      </SectionHeading>
       <div class="mt-7 grid grid-cols-3 gap-4 max-[850px]:grid-cols-1">
         {principles.map((principle) => (
           <div class="rounded-[22px] border border-[#19191d]/10 bg-white/80 p-7 backdrop-blur-[16px] max-[700px]:p-6">
@@ -138,17 +133,11 @@ const principles = [
       aria-labelledby="site-heading"
     >
       <div>
-        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
-          ABOUT THIS SITE
-        </p>
-        <h2
-          id="site-heading"
-          class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
-        >
+        <SectionHeading id="site-heading" label="ABOUT THIS SITE">
           つくったものと、
           <br />
           学んだことの入口。
-        </h2>
+        </SectionHeading>
       </div>
       <div>
         <p class="m-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
@@ -171,15 +160,9 @@ const principles = [
       class="mt-20 max-[700px]:mt-14"
       aria-labelledby="technology-heading"
     >
-      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
-        BEHIND THE SITE
-      </p>
-      <h2
-        id="technology-heading"
-        class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
-      >
+      <SectionHeading id="technology-heading" label="BEHIND THE SITE">
         このサイトを支える技術
-      </h2>
+      </SectionHeading>
       <p class="mt-5 mb-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
         ページの構築から配信まで、それぞれの役割に合わせて組み合わせています。
       </p>
@@ -206,15 +189,9 @@ const principles = [
     </section>
 
     <section class="mt-20 max-[700px]:mt-14" aria-labelledby="links-heading">
-      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
-        EXPLORE MORE
-      </p>
-      <h2
-        id="links-heading"
-        class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
-      >
+      <SectionHeading id="links-heading" label="EXPLORE MORE">
         コードと、日々の記録
-      </h2>
+      </SectionHeading>
       <div class="mt-7 grid grid-cols-2 gap-4 max-[600px]:grid-cols-1">
         {links.map((link) => (
           <a
