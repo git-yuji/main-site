@@ -124,22 +124,22 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
   wide
 >
   <section
-    class="grid grid-cols-[1.5fr_1fr] items-center gap-12 pt-24 pb-20 max-[700px]:grid-cols-1 max-[700px]:gap-8 max-[700px]:py-14"
+    class="grid grid-cols-[2fr_1fr] items-center gap-12 pt-24 pb-20 max-[700px]:grid-cols-1 max-[700px]:gap-8 max-[700px]:py-14"
     aria-labelledby="works-heading"
   >
     <div>
-      <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
         DESIGN · BUILD · LEARN
       </p>
       <h1
         id="works-heading"
-        class="my-[1.4rem] [font-size:clamp(2.5rem,5.5vw,4.25rem)] leading-[1.35] tracking-[-0.065em]"
+        class="mt-4 mb-0 [font-size:clamp(2.8rem,5.5vw,5rem)] leading-[1.2] font-bold tracking-[-0.045em]"
       >
         小さな課題から、
         <br />
         使えるかたちへ<span class="text-[#987c83]">。</span>
       </h1>
-      <p class="text-[0.94rem] leading-[2.1] text-[#67616a] max-[700px]:text-[0.85rem]">
+      <p class="mt-8 mb-0 text-[1.05rem] leading-[2] tracking-[0.025em] text-[#56565e] max-[700px]:text-base">
         日々の作業を、少し便利に。
         <br />
         実用的なWebサービスから、学びを深めるアプリまで。
@@ -147,7 +147,7 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
         考えて、作って、改善してきた制作物をまとめました。
       </p>
       <a
-        class="mt-4 inline-flex items-center gap-6 text-[0.8rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+        class="mt-4 inline-flex items-center gap-6 text-[0.82rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
         href="#projects"
       >
         制作物を探す <span aria-hidden="true">↓</span>
@@ -157,14 +157,14 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
       class="relative overflow-hidden rounded-[50%_50%_1.5rem_1.5rem] border border-[#4d373d20] bg-[linear-gradient(145deg,#eee5e4c9,#ffffff9c)] p-8 text-center max-[700px]:hidden"
       aria-label="制作物の概要"
     >
-      <span class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c] mt-8 block">
+      <span class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c] mt-8 block">
         WORKS COLLECTION
       </span>
-      <div class="text-[7rem] leading-[1.3] font-medium tracking-[-0.08em] text-[#4d373d]">
+      <div class="text-[7rem] leading-[1.3] font-bold tracking-[-0.045em] text-[#4d373d]">
         {String(works.length).padStart(2, "0")}
-        <span class="block text-[0.65rem] tracking-[0.3em]">PROJECTS</span>
+        <span class="block text-[0.76rem] font-bold tracking-[0.18em]">PROJECTS</span>
       </div>
-      <div class="mt-8 grid gap-[0.6rem] border-t border-[#4d373d20] pt-6 text-[0.72rem] text-[#78666c]">
+      <div class="mt-8 grid gap-[0.6rem] border-t border-[#4d373d20] pt-6 text-[0.78rem] text-[#67676d]">
         <span>アイデアを、実装へ。</span>
         <span>{works.filter((work) => work.href).length} services online</span>
       </div>
@@ -174,17 +174,17 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
   <section aria-labelledby="featured-heading">
     <div class="mb-[1.8rem] flex items-end justify-between gap-4">
       <div>
-        <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
           FEATURED WORKS
         </p>
         <h2
           id="featured-heading"
-          class="mt-[0.7rem] mb-0 text-[1.6rem] tracking-[-0.04em]"
+          class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
         >
           公開中のサービス
         </h2>
       </div>
-      <span class="text-xs text-[#797079] max-[700px]:hidden">
+      <span class="text-[0.78rem] text-[#67676d] max-[700px]:hidden">
         日々の「ちょっと便利」をつくる
       </span>
     </div>
@@ -203,12 +203,12 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
               aria-hidden="true"
             >
               <div class="absolute -top-12 -right-12 -z-1 size-80 rounded-full border border-current opacity-[0.18] shadow-[0_0_0_2rem_#ffffff12,0_0_0_4rem_#ffffff0a]"></div>
-              <span class="text-[0.6rem] tracking-[0.18em]">
+              <span class="text-[0.76rem] font-bold tracking-[0.18em]">
                 {index === 0 ? "DOMAIN INSIGHT" : "YOUR KNOWLEDGE, CONNECTED"}
               </span>
-              <div class="self-center text-8xl leading-none tracking-[-0.1em] [font-family:Georgia,serif]">
+              <div class="self-center text-8xl leading-none tracking-[-0.1em]">
                 {index === 0 ? "@" : "Aa"}
-                <span class="ml-4 align-top font-sans text-[2rem]">↗</span>
+                <span class="ml-4 align-top text-[2rem]">↗</span>
               </div>
               <div class="flex gap-[0.6rem]">
                 {(index === 0
@@ -217,7 +217,7 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
                 ).map((label) => (
                   <span
                     class:list={[
-                      "rounded-[2rem] border px-[0.65rem] py-[0.35rem] text-[0.55rem] tracking-[0.12em]",
+                      "rounded-[2rem] border px-[0.65rem] py-[0.35rem] text-[0.72rem] font-bold tracking-[0.12em]",
                       index === 1 ? "border-[#354c4030]" : "border-[#ffffff50]",
                     ]}
                   >
@@ -227,18 +227,18 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
               </div>
             </div>
             <div class="p-8 max-[700px]:p-6">
-              <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+              <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
                 <span class="mr-2 inline-block size-[0.4rem] rounded-full bg-[#69846d]"></span>
                 {work.category}
               </p>
-              <h3 class="my-[0.9rem] text-[1.35rem] tracking-[-0.035em] [overflow-wrap:anywhere]">
+              <h3 class="mt-4 mb-4 text-[1.2rem] font-[750] tracking-[-0.025em] [overflow-wrap:anywhere]">
                 {work.title}
               </h3>
-              <p class="text-[0.85rem] leading-[1.95] text-[#65616a]">
+              <p class="text-[0.95rem] leading-[1.9] text-[#56565e]">
                 {work.description}
               </p>
               <a
-                class="mt-6 flex justify-between border-t border-[#4d373d20] pt-4 text-[0.8rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+                class="mt-6 flex justify-between border-t border-[#4d373d20] pt-4 text-[0.82rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
                 href={work.href!}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -262,17 +262,17 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
   >
     <div class="mb-[1.8rem] flex items-end justify-between gap-4">
       <div>
-        <p class="m-0 text-[0.66rem] font-bold tracking-[0.16em] text-[#78666c]">
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
           ALL PROJECTS
         </p>
         <h2
           id="projects-heading"
-          class="mt-[0.7rem] mb-0 text-[1.6rem] tracking-[-0.04em]"
+          class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
         >
           制作の記録
         </h2>
       </div>
-      <p class="text-xs text-[#797079]" aria-live="polite" aria-atomic="true">
+      <p class="text-[0.78rem] text-[#67676d]" aria-live="polite" aria-atomic="true">
         <span data-project-count>{works.length}</span> projects
       </p>
     </div>
@@ -285,7 +285,7 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
     >
       {filters.map((filter, index) => (
         <button
-          class="cursor-pointer rounded-[2rem] border border-[#4d373d20] bg-[#ffffffaa] px-[1.1rem] py-[0.65rem] text-xs text-[#65535b] aria-pressed:border-[#4d373d] aria-pressed:bg-[#4d373d] aria-pressed:text-white focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+          class="cursor-pointer rounded-[2rem] border border-[#4d373d20] bg-[#ffffffaa] px-[1.1rem] py-[0.65rem] text-[0.82rem] font-bold text-[#4d373d] aria-pressed:border-[#4d373d] aria-pressed:bg-[#4d373d] aria-pressed:text-white focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
           type="button"
           data-filter={filter}
           aria-pressed={index === 0}
@@ -303,23 +303,23 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
           data-live={Boolean(work.href)}
         >
           <div class="flex items-center justify-between gap-4">
-            <span class="m-0 text-[0.58rem] font-bold tracking-[0.16em] text-[#78666c]">
+            <span class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
               {work.category}
             </span>
             <span
-              class="text-[1.4rem] text-[#aa979d] [font-family:Georgia,serif]"
+              class="text-[0.78rem] font-bold tracking-[0.12em] text-[#76767c]"
               aria-hidden="true"
             >
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
-          <h3 class="my-[0.9rem] text-[1.35rem] tracking-[-0.035em] [overflow-wrap:anywhere]">
+          <h3 class="mt-4 mb-4 text-[1.2rem] font-[750] tracking-[-0.025em] [overflow-wrap:anywhere]">
             {work.title}
           </h3>
-          <p class="mt-0 mb-4 text-[0.85rem] leading-[1.95] text-[#65616a]">
+          <p class="mt-0 mb-4 text-[0.95rem] leading-[1.9] text-[#56565e]">
             {work.description}
           </p>
-          <details class="text-[0.78rem] leading-[1.9] text-[#70666b]">
+          <details class="text-[0.86rem] leading-[1.8] text-[#67676d]">
             <summary class="w-fit cursor-pointer text-[#4d373d] focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]">
               制作の背景
             </summary>
@@ -330,14 +330,14 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
             aria-label={`${work.title}の使用技術`}
           >
             {work.technologies.map((technology) => (
-              <li class="rounded-[0.35rem] bg-[#f3f0f1] px-[0.6rem] py-[0.3rem] text-[0.62rem] text-[#6d5c64]">
+              <li class="rounded-[0.35rem] bg-[#f3f0f1] px-[0.6rem] py-[0.3rem] text-[0.78rem] text-[#67676d]">
                 {technology}
               </li>
             ))}
           </ul>
           <div class="flex justify-between gap-4 border-t border-[#4d373d15] pt-4">
             <a
-              class="text-xs font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+              class="text-[0.82rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
               href={work.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -350,7 +350,7 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
             </a>
             {work.href && (
               <a
-                class="text-xs font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
+                class="text-[0.82rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83]"
                 href={work.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -370,15 +370,15 @@ const filters = ["すべて", "公開中", "TypeScript", "React", "PHP"];
       <span class="text-[2.7rem] text-[#987c83]" aria-hidden="true">
         ✳
       </span>
-      <p class="text-[0.9rem] leading-[1.9]">
+      <p class="text-[0.95rem] leading-[1.9] text-[#56565e]">
         学んだことを、次の制作へ。
         <br />
-        <span class="text-xs text-[#797079]">
+        <span class="text-[0.78rem] text-[#67676d]">
           これからも、少しずつ積み重ねていきます。
         </span>
       </p>
       <a
-        class="ml-auto inline-flex items-center gap-6 text-[0.8rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83] max-[700px]:m-0 max-[700px]:basis-full"
+        class="ml-auto inline-flex items-center gap-6 text-[0.82rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-[5px] focus-visible:outline-[#987c83] max-[700px]:m-0 max-[700px]:basis-full"
         href="/about/"
       >
         プロフィールを見る ↗
