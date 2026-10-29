@@ -13,12 +13,8 @@ const { wide = false, background = "works", ...pageProps } = Astro.props;
 <BaseLayout {...pageProps}>
   <main
     data-globe-background
-    class:list={[
-      "relative isolate min-h-svh overflow-hidden px-6 py-10 max-[700px]:px-4 max-[700px]:py-6",
-      background === "profile"
-        ? "[&>canvas]:opacity-[0.18] max-[700px]:[&>canvas]:opacity-[0.12]"
-        : "[&>canvas]:opacity-[0.16] max-[700px]:[&>canvas]:opacity-[0.1]",
-    ]}
+    data-globe-static={background}
+    class="relative isolate min-h-svh overflow-hidden px-6 py-10 max-[700px]:px-4 max-[700px]:py-6"
   >
     <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-20 bg-[#fcfcfc]"></div>
     <div
