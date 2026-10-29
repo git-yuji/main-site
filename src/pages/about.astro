@@ -26,90 +26,219 @@ const links = [
     href: serviceUrls.blog,
   },
 ];
+
+const principles = [
+  {
+    number: "01",
+    title: "シンプルに、使いやすく。",
+    description:
+      "必要な情報や機能が、迷わず見つかること。日々使う小さなツールにも、わかりやすさを大切にしています。",
+  },
+  {
+    number: "02",
+    title: "軽快に、心地よく。",
+    description:
+      "表示速度を意識しながら、すっと使い始められるWebサイトを目指しています。",
+  },
+  {
+    number: "03",
+    title: "少しずつ、長く育てる。",
+    description:
+      "メンテナンスしやすい構成を選び、学んだことを次の制作や改善につなげています。",
+  },
+];
 ---
 
 <ContentLayout
   title="プロフィール | YUYU WEB"
-  description="YUYUのプロフィールと、YUYU WEBの技術構成を紹介します。"
+  description="YUYUのプロフィールと、制作で大切にしていること、YUYU WEBの技術構成を紹介します。"
   path="/about/"
   ogType="profile"
   background="profile"
+  wide
 >
-    <article class="mt-20 max-[700px]:mt-14">
-      <section aria-labelledby="profile-heading">
-        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">PROFILE</p>
+  <article class="mt-20 max-[700px]:mt-14">
+    <section
+      class="grid grid-cols-[2fr_1fr] items-center gap-12 max-[700px]:grid-cols-1 max-[700px]:gap-8"
+      aria-labelledby="profile-heading"
+    >
+      <div>
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
+          PROFILE
+        </p>
         <h1
           id="profile-heading"
           class="mt-4 mb-0 [font-size:clamp(2.8rem,9vw,5rem)] leading-none font-bold tracking-[-0.045em]"
         >
           YUYU
         </h1>
-        <p class="mt-8 mb-0 max-w-[36rem] text-[1.05rem] leading-[2] tracking-[0.025em] text-[#56565e] max-[700px]:text-base">
-          Webサイトや、日々を少し便利にする小さなツールを作っています。<br class="max-[560px]:hidden" />
+        <p class="mt-6 mb-0 text-[1.2rem] font-[750] leading-[1.7] tracking-[-0.025em]">
+          日々の「少し便利」を、つくる。
+        </p>
+        <p class="mt-5 mb-0 max-w-[36rem] text-[1.05rem] leading-[2] tracking-[0.025em] text-[#56565e] max-[700px]:text-base">
+          Webサイトや、日々を少し便利にする小さなツールを作っています。
+          <br class="max-[560px]:hidden" />
           シンプルで使いやすく、長く使えるものが好きです。
         </p>
-      </section>
-
-      <section
-        class="mt-20 rounded-[22px] border border-[#19191d]/10 bg-white/80 p-9 shadow-[0_18px_55px_rgba(40,34,36,0.08)] backdrop-blur-[16px] max-[700px]:mt-14 max-[700px]:rounded-[18px] max-[700px]:p-6"
-        aria-labelledby="site-heading"
+        <a
+          class="mt-7 inline-flex min-h-11 items-center gap-6 rounded-full bg-[#4d373d] px-5 text-[0.82rem] font-bold text-white no-underline transition-colors hover:bg-[#39292d] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
+          href="/works/"
+        >
+          制作物を見る <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div
+        class="relative isolate grid aspect-square place-items-center overflow-hidden rounded-[50%_50%_24px_24px] border border-[#4d373d]/10 bg-[linear-gradient(145deg,#eee5e4,#fcfcfc)] p-8 max-[700px]:aspect-auto max-[700px]:min-h-52 max-[700px]:rounded-[22px]"
+        aria-hidden="true"
       >
-        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">ABOUT THIS SITE</p>
-        <h2 id="site-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
-          このサイトについて
-        </h2>
-        <p class="mt-5 mb-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
-          YUYU WEBは、制作したWebサービスをまとめるためのポータルサイトです。シンプルで軽快な表示を意識し、Astroを使った静的サイトとして構築しています。
-        </p>
-      </section>
-
-      <section class="mt-20 max-[700px]:mt-14" aria-labelledby="technology-heading">
-        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">TECHNOLOGY</p>
-        <h2 id="technology-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
-          技術構成
-        </h2>
-        <div class="mt-7 grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
-          {
-            technologies.map((technology) => (
-              <div class="rounded-[16px] border border-[#19191d]/10 bg-white/70 px-5 py-[18px]">
-                <h3 class="m-0 text-[0.98rem] font-[750]">{technology.name}</h3>
-                <p class="mt-2 mb-0 text-[0.78rem] leading-[1.65] text-[#67676d]">
-                  {technology.description}
-                </p>
-              </div>
-            ))
-          }
+        <div class="absolute -right-8 -bottom-8 -z-1 size-64 rounded-full border border-[#4d373d]/10 shadow-[0_0_0_28px_#4d373d06,0_0_0_56px_#4d373d04]"></div>
+        <div class="text-center">
+          <span class="text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
+            YUYU WEB
+          </span>
+          <div class="my-4 text-8xl leading-none font-bold tracking-[-0.045em] text-[#4d373d]">
+            Y.
+          </div>
+          <span class="text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
+            MAKE SMALL THINGS
+          </span>
         </div>
-        <p class="mt-6 mb-0 text-[0.86rem] leading-[1.8] text-[#67676d]">
+      </div>
+    </section>
+
+    <section class="mt-20 max-[700px]:mt-14" aria-labelledby="approach-heading">
+      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
+        MY APPROACH
+      </p>
+      <h2
+        id="approach-heading"
+        class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
+      >
+        制作で大切にしていること
+      </h2>
+      <div class="mt-7 grid grid-cols-3 gap-4 max-[850px]:grid-cols-1">
+        {principles.map((principle) => (
+          <div class="rounded-[22px] border border-[#19191d]/10 bg-white/80 p-7 backdrop-blur-[16px] max-[700px]:p-6">
+            <span class="text-[0.78rem] font-bold tracking-[0.12em] text-[#76767c]">
+              {principle.number}
+            </span>
+            <h3 class="mt-5 mb-0 text-[1.05rem] font-[750] leading-[1.7] tracking-[-0.025em]">
+              {principle.title}
+            </h3>
+            <p class="mt-3 mb-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
+              {principle.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section
+      class="mt-20 grid grid-cols-[1fr_1.5fr] gap-10 rounded-[22px] border border-[#19191d]/10 bg-white/80 p-9 shadow-[0_18px_55px_rgba(40,34,36,0.08)] backdrop-blur-[16px] max-[700px]:mt-14 max-[700px]:grid-cols-1 max-[700px]:gap-5 max-[700px]:p-6"
+      aria-labelledby="site-heading"
+    >
+      <div>
+        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
+          ABOUT THIS SITE
+        </p>
+        <h2
+          id="site-heading"
+          class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
+        >
+          つくったものと、
+          <br />
+          学んだことの入口。
+        </h2>
+      </div>
+      <div>
+        <p class="m-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
+          YUYU
+          WEBは、制作したWebサービスをまとめるためのポータルサイトです。シンプルで軽快な表示を意識し、Astroを使った静的サイトとして構築しています。
+        </p>
+        <p class="mt-4 mb-0 text-[0.86rem] leading-[1.8] text-[#67676d]">
           表示速度とメンテナンスのしやすさを大切にしながら、できるだけシンプルな構成にしています。
         </p>
-      </section>
+        <a
+          class="mt-5 inline-flex min-h-11 items-center gap-3 text-[0.82rem] font-bold text-[#4d373d] no-underline hover:underline hover:underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30"
+          href="/"
+        >
+          トップページを見る <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
 
-      <section class="mt-20 max-[700px]:mt-14" aria-labelledby="links-heading">
-        <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">LINKS</p>
-        <h2 id="links-heading" class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]">
-          リンク
-        </h2>
-        <div class="mt-7 grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
-          {links.map((link) => (
-            <a
-              class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 px-5 py-[18px] text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none"
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
+    <section
+      class="mt-20 max-[700px]:mt-14"
+      aria-labelledby="technology-heading"
+    >
+      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
+        BEHIND THE SITE
+      </p>
+      <h2
+        id="technology-heading"
+        class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
+      >
+        このサイトを支える技術
+      </h2>
+      <p class="mt-5 mb-0 text-[0.95rem] leading-[1.9] text-[#56565e]">
+        ページの構築から配信まで、それぞれの役割に合わせて組み合わせています。
+      </p>
+      <div class="mt-7 grid grid-cols-3 gap-4 max-[850px]:grid-cols-2 max-[600px]:grid-cols-1">
+        {technologies.map((technology, index) => (
+          <div class="flex items-start gap-4 rounded-[16px] border border-[#19191d]/10 bg-white/75 p-6">
+            <span
+              class="grid size-10 shrink-0 place-items-center rounded-xl bg-[#4d373d]/5 text-[0.78rem] font-bold text-[#4d373d]"
+              aria-hidden="true"
             >
-              <span class="grid gap-2">
-                <span class="text-[1.05rem] font-[750]">{link.title}</span>
-                <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">{link.description}</span>
-              </span>
-              <span
-                aria-hidden="true"
-                class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-              >↗</span>
-            </a>
-          ))}
-        </div>
-      </section>
-    </article>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div class="min-w-0">
+              <h3 class="m-0 text-[0.98rem] font-[750] [overflow-wrap:anywhere]">
+                {technology.name}
+              </h3>
+              <p class="mt-2 mb-0 text-[0.78rem] leading-[1.65] text-[#67676d]">
+                {technology.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
 
+    <section class="mt-20 max-[700px]:mt-14" aria-labelledby="links-heading">
+      <p class="m-0 text-[0.76rem] font-bold tracking-[0.18em] text-[#76767c]">
+        EXPLORE MORE
+      </p>
+      <h2
+        id="links-heading"
+        class="mt-3 mb-0 text-[1.65rem] font-bold tracking-[-0.025em]"
+      >
+        コードと、日々の記録
+      </h2>
+      <div class="mt-7 grid grid-cols-2 gap-4 max-[600px]:grid-cols-1">
+        {links.map((link) => (
+          <a
+            class="group flex min-h-[112px] items-center justify-between gap-5 rounded-[16px] border border-[#19191d]/10 bg-white/75 p-7 text-inherit no-underline shadow-[0_10px_35px_rgba(40,34,36,0.05)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-[#4d373d]/25 hover:shadow-[0_14px_40px_rgba(40,34,36,0.09)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#4d373d]/30 motion-reduce:transition-none max-[700px]:p-6"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="grid gap-2">
+              <span class="text-[1.2rem] font-[750]">{link.title}</span>
+              <span class="text-[0.78rem] leading-[1.65] text-[#67676d]">
+                {link.description}
+                <span class="sr-only">（新しいタブで開きます）</span>
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-[1.05rem] font-bold text-[#4d373d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+            >
+              ↗
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </article>
 </ContentLayout>
