@@ -1,110 +1,123 @@
 # YUYU WEB
 
-`yuyu-web.com`のメインサイトです。メールチェック、技術ブログ、プロフィールへ案内する、シンプルなポータルとして運用します。
+`yuyu-web.com`のメインサイトです。プロフィール、制作物、メールチェック、技術ブログへの入口をまとめています。
 
-## サイト一覧
+## ページとサービス
 
-| サービス | URL | 説明 |
+| 名前 | URL | 内容 |
 | --- | --- | --- |
-| YUYU WEB | <a href="https://yuyu-web.com/" target="_blank" rel="noopener noreferrer">https://yuyu-web.com/</a> | 各サービスへの入口 |
-| プロフィール | <a href="https://yuyu-web.com/about/" target="_blank" rel="noopener noreferrer">https://yuyu-web.com/about/</a> | プロフィールとサイトの技術構成 |
-| 制作物 | <a href="https://yuyu-web.com/works/" target="_blank" rel="noopener noreferrer">https://yuyu-web.com/works/</a> | 制作したWebサービスの紹介 |
-| メールチェック | <a href="https://mail.yuyu-web.com/" target="_blank" rel="noopener noreferrer">https://mail.yuyu-web.com/</a> | メールを手軽に確認するWebアプリ |
-| 技術ブログ | <a href="https://notes.yuyu-web.com/" target="_blank" rel="noopener noreferrer">https://notes.yuyu-web.com/</a> | 記事や開発記録を掲載するブログ |
+| トップページ | [https://yuyu-web.com/](https://yuyu-web.com/) | 各ページとサービスへの入口 |
+| プロフィール | [https://yuyu-web.com/about/](https://yuyu-web.com/about/) | プロフィールとサイトの技術構成 |
+| 制作物 | [https://yuyu-web.com/works/](https://yuyu-web.com/works/) | 制作したWebサービスの紹介 |
+| メールチェック | [https://mail.yuyu-web.com/](https://mail.yuyu-web.com/) | メールを手軽に確認するWebアプリ |
+| 技術ブログ | [https://notes.yuyu-web.com/](https://notes.yuyu-web.com/) | 記事や開発記録を掲載するブログ |
 
-## 特徴
+## 主な機能
 
-- Astroによる静的サイト
-- Tailwind CSSを使ったレスポンシブデザイン
-- Vanta.jsとThree.jsによるGlobeアニメーション
-- 動きを減らす設定に応じた静止Globeへの切り替え
-- メールチェックと技術ブログを別タブで開くサービスカード
-- プロフィールとサイトの技術構成を掲載するAboutページ
-- サービスの目的と技術構成を紹介する制作物ページ
-- 地球儀背景とトップへの導線を備えた404ページ
-- Cloudflare Workers Static Assetsによる配信
-- canonical、`robots.txt`、`sitemap.xml`を使った検索エンジン向け設定
+- 画面サイズに合わせて表示を調整するデザイン
+- Vanta.jsとThree.jsを使った地球の背景アニメーション
+- 端末で「視差効果を減らす」が設定されている場合の静止画表示
+- プロフィール、制作物、404ページ
+- canonical、`robots.txt`、`sitemap.xml`を使った検索エンジン向けの設定
+- Cloudflare Workers Static Assetsを使った静的ファイルの配信
 
-## 技術構成
+## 使用技術
 
-| 分類 | 使用技術 |
-| --- | --- |
-| フレームワーク | Astro |
-| スタイリング | Tailwind CSS |
-| 背景アニメーション | Vanta.js / Three.js |
-| ホスティング | Cloudflare Workers Static Assets |
-| デプロイ | Wrangler |
+| 分類 | 使用技術 | 用途 |
+| --- | --- | --- |
+| フレームワーク | Astro 7 | 静的なページの作成 |
+| CSS | Tailwind CSS 4 | ページの見た目の調整 |
+| 背景アニメーション | Vanta.js / Three.js | 地球のアニメーション表示 |
+| ホスティング | Cloudflare Workers Static Assets | ビルドしたファイルの公開 |
+| デプロイ | Wrangler | Cloudflareへのデプロイ |
 
-## ローカル開発
+サイトはAstroの静的出力を使います。ビルド後のファイルは`dist/`に作成されます。
 
-### 必要な環境
+## セットアップ
 
-- Node.js 22.23.4（`.nvmrc` / `.node-version`で指定）
+### 必要なもの
+
+- Node.js 22.23.4
 - npm
 
-2026年10月21日公開の[Node.jsセキュリティ更新](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases)に対応しています。別のメジャーバージョンを使う場合も、`package.json`の`engines.node`を満たす修正版を使用してください。
-
-Cloudflareのビルド環境で`NODE_VERSION`を明示している場合は、22.23.4に更新してください。静的ファイル配信自体はNode.jsを実行しませんが、開発・ビルド・Wrangler実行環境には更新が必要です。
-
-### セットアップ
+Node.jsのバージョンは`.nvmrc`と`.node-version`で指定しています。nvmを使う場合は、次のコマンドで準備できます。
 
 ```sh
 nvm install
 nvm use
 npm ci
+```
+
+`package.json`の`engines.node`を満たすNode.js 24または26も使用できます。迷った場合は、上記の指定バージョンを使用してください。
+
+### 開発サーバーの起動
+
+```sh
 npm run dev
 ```
 
-起動後、<a href="http://localhost:4321/" target="_blank" rel="noopener noreferrer">http://localhost:4321/</a>を開きます。
+起動後、[http://localhost:4321/](http://localhost:4321/)をブラウザで開きます。ファイルを変更すると表示が自動で更新されます。
 
-## コマンド
+## 開発・ビルドコマンド
 
-| コマンド | 用途 |
+| コマンド | 内容 |
 | --- | --- |
-| `npm run dev` | Astro開発サーバーを起動 |
-| `npm run build` | 本番用ファイルを`dist/`へ生成 |
-| `npm run preview` | ビルド結果をAstroでプレビュー |
-| `npm run deploy` | ビルド後、Cloudflare Workersへデプロイ |
+| `npm ci` | `package-lock.json`に合わせて依存パッケージをインストールする |
+| `npm run dev` | 開発サーバーを起動する |
+| `npm run build` | 公開用のファイルを`dist/`に作成する |
+| `npm run preview` | ビルド結果をローカルで確認する |
+| `npm run deploy` | ビルド後、Cloudflare Workersへデプロイする |
 
-## 依存関係のメンテナンス
+ビルド結果を確認する場合は、次の順番で実行します。
 
-Dependabotを使い、npmパッケージの更新を月1回、日本時間9時に確認します。更新がある場合は最大5件までPull Requestを作成します。自動マージは行いません。
+```sh
+npm run build
+npm run preview
+```
 
-`main`へのマージが多い場合も、Dependabotは更新された`main`を基準にPull Requestを更新します。`package.json`や`package-lock.json`で競合した場合は、通常の機能追加や修正を先にマージしてからDependabotのPull Requestを更新します。
+`npm run deploy`を使うには、Cloudflareへログインできる環境が必要です。
 
-DependabotのPull Requestは、次の順番で確認します。
-
-1. 通常の機能追加・修正を先に`main`へマージする
-2. DependabotのPull Requestを最新化する
-3. `npm run build`と画面表示を確認する
-4. 問題がなければDependabotのPull Requestをマージする
+Pull Requestでは、GitHub Actionsが`npm ci`と`npm run build`を実行します。
 
 ## ディレクトリ構成
 
 ```text
 main-site/
 ├── .github/
-│   └── dependabot.yml   # npm依存関係の定期更新設定
-├── public/
-│   ├── favicon.svg      # 地球モチーフのファビコン
-│   ├── globe-static.svg # 動きを減らす設定向けの静止背景
-│   ├── og-image.png     # SNS共有用の共通OGP画像
-│   ├── robots.txt       # クローラー制御
-│   └── sitemap.xml      # Search Consoleへ送信するサイトマップ
+│   ├── dependabot.yml       # npmパッケージの更新設定
+│   └── workflows/build.yml  # Pull Requestなどでビルドを確認する設定
+├── public/                  # そのまま公開する画像や設定ファイル
+│   ├── _redirects           # 旧ブログURLからの転送設定
+│   ├── favicon.svg          # ファビコン
+│   ├── globe-static.svg     # アニメーションを減らす設定向けの背景
+│   ├── og-image.png         # SNS共有用の画像
+│   ├── robots.txt           # 検索エンジンの巡回設定
+│   └── sitemap.xml          # サイトマップ
 ├── src/
-│   ├── components/
-│   │   └── GlobeBackground.astro # 地球背景とアニメーション制御
-│   ├── layouts/
-│   │   ├── BaseLayout.astro    # 共通メタ情報とページの基本構造
-│   │   └── ContentLayout.astro # 下層ページの背景・ヘッダー・フッター
-│   ├── pages/
-│   │   ├── 404.astro    # ページが見つからない場合の案内
-│   │   ├── about.astro  # プロフィールと技術構成
-│   │   ├── index.astro  # メインページ
-│   │   └── works.astro  # 制作物の紹介
-│   └── styles/
-│       └── global.css   # Tailwind CSSの読み込み
-├── astro.config.mjs     # AstroとTailwindの設定
-├── wrangler.jsonc       # Cloudflare Workersの設定
-└── package.json
+│   ├── components/          # 複数のページで使う部品
+│   ├── data/                # サービスURLなどの共通データ
+│   ├── layouts/             # ページ共通のレイアウト
+│   ├── pages/               # URLごとのページ
+│   │   ├── 404.astro
+│   │   ├── about.astro
+│   │   ├── index.astro
+│   │   └── works.astro
+│   └── styles/              # サイト全体のCSS
+├── astro.config.mjs         # AstroとTailwind CSSの設定
+├── package.json             # npmコマンドと依存パッケージ
+├── tsconfig.json            # TypeScriptの設定
+└── wrangler.jsonc           # Cloudflare Workersの設定
 ```
+
+## 依存パッケージの更新
+
+Dependabotがnpmパッケージの更新を月1回、日本時間9時に確認します。更新がある場合は、最大5件のPull Requestを作成します。自動ではマージしません。
+
+DependabotのPull Requestは、次の順番で確認します。
+
+1. 通常の機能追加や修正を先に`main`へマージする
+2. DependabotのPull Requestを最新の状態にする
+3. `npm run build`と画面表示を確認する
+4. 問題がなければマージする
+
+`package.json`や`package-lock.json`で競合した場合も、通常の変更を先にマージしてからDependabotのPull Requestを更新します。
